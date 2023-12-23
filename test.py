@@ -19,4 +19,4 @@ while True:
     origin = repo.remote(name='origin')
     origin.push()
 
-    time.sleep(60) # commit every minute
+    time.sleep(2) # commit every minute
