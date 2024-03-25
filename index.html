@@ -49,6 +49,12 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
+    <!-- Reset CSS Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
+
     <!-- Slider CSS Link -->
     <link rel="stylesheet" href="./lib/slick-1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="./lib/slick-1.8.1/slick/slick-theme.css" />
@@ -60,15 +66,34 @@
     <link rel="stylesheet" href="./assets/css/responsive.css" />
   </head>
   <body>
-    <!--  Preloader Start  -->
+    <!-- Preloader Start -->
     <div class="preloader">
-      <img
-        src="./assets/images/fingerprint-scan-css-loader.svg"
-        alt="Preloader Logo"
-      />
+      <div class="preloader-content">
+        <!-- Content from preloader.html -->
+        <!-- Start of preloader.html content -->
+        <div class="wlan-search">
+          <div>
+            <svg class="top" viewBox="0 0 40 40">
+              <path
+                d="M4,14 C9.33333333,10 14.6666667,8 20,8 C25.3333333,8 30.6666667,10 36,14"
+              ></path>
+            </svg>
+            <svg class="middle" viewBox="0 0 40 40">
+              <path
+                d="M9,19 C12.6666667,16.3333333 16.3333333,15 20,15 C23.6666667,15 27.3333333,16.3333333 31,19"
+              ></path>
+            </svg>
+            <svg class="bottom" viewBox="0 0 40 40">
+              <path
+                d="M13,24 C15.3333333,22.1666667 17.6666667,21.25 20,21.25 C22.3333333,21.25 24.6666667,22.1666667 27,24"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        <!-- End of preloader.html content -->
+      </div>
     </div>
-    <!--  Preloader End  -->
-
+    <!-- Preloader End -->
     <!-- Header Start -->
     <header class="d2c_navbar sticky-top">
       <div class="container">
