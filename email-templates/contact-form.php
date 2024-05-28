@@ -2,13 +2,13 @@
 if( ! empty( $_POST['email'] ) ) {
 
 	// Enable / Disable SMTP
-	$enable_smtp = 'no'; // yes OR no
+	$enable_smtp = 'yes'; // yes OR no
 
 	// Email Receiver Address
-	$receiver_email = 'info@domain.com';
+	$receiver_email = 'iamanubhavgain+mranv@gmail.com';
 
 	// Email Receiver Name for SMTP Email
-	$receiver_name 	= 'Your Name';
+	$receiver_name 	= 'Anubhav Gain Sent using Github Actions';
 
 	// Email Subject
 	$subject = 'Contact form details';
@@ -88,7 +88,7 @@ if( ! empty( $_POST['email'] ) ) {
 			<body>
 				<table width="50%" border="0" align="center" cellpadding="0" cellspacing="0">
 				<tr>
-				<td colspan="2" align="center" valign="top"><img style="margin-top: 15px;" src="http://www.yourdomain.com/images/logo-email.png" ></td>
+				<td colspan="2" align="center" valign="top"><img style="margin-top: 15px;" src="http://mranv.github.io/assets/images/logo.png" ></td>
 				</tr>
 				<tr>
 				<td width="50%" align="right">&nbsp;</td>
@@ -136,10 +136,10 @@ if( ! empty( $_POST['email'] ) ) {
 			$mail = new PHPMailer\PHPMailer\PHPMailer();
 
 			$mail->isSMTP();
-			$mail->Host     = 'YOUR_SMTP_HOST'; // Your SMTP Host
+			$mail->Host     = 'smtp.gmail.com'; // Your SMTP Host
 			$mail->SMTPAuth = true;
-			$mail->Username = 'YOUR_SMTP_USERNAME'; // Your Username
-			$mail->Password = 'YOUR_SMTP_PASSWORD'; // Your Password
+			$mail->Username = 'iamanubhavgain@gmail.com'; // Your Username
+			$mail->Password = 'bmxusovnkxbftiod'; // Your Password
 			$mail->SMTPSecure = 'ssl'; // Your Secure Connection
 			$mail->Port     = 465; // Your Port
 			$mail->setFrom( $fields['Email'], $fields['Name'] );
