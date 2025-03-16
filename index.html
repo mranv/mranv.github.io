@@ -41,6 +41,27 @@
     <link rel="stylesheet" href="css/responsive.css" />
     <link rel="stylesheet" href="demos/freelancer/freelancer.css" />
 
+    <!-- Right-click disable script -->
+    <script>
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+      });
+
+      document.addEventListener('keydown', function(e) {
+        // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+        if (
+          e.keyCode === 123 ||
+          (e.ctrlKey && e.shiftKey && e.keyCode === 73) ||
+          (e.ctrlKey && e.shiftKey && e.keyCode === 74) ||
+          (e.ctrlKey && e.keyCode === 85)
+        ) {
+          e.preventDefault();
+          return false;
+        }
+      });
+    </script>
+
     <!-- Schema.org markup -->
     <script type="application/ld+json">
     {
@@ -72,7 +93,7 @@
     </script>
   </head>
 
-  <body data-mobile-nav-style="classic" class="custom-cursor">
+  <body data-mobile-nav-style="classic" class="custom-cursor" oncontextmenu="return false;">
     <!-- start cursor -->
     <div class="cursor-page-inner">
       <div class="circle-cursor circle-cursor-inner"></div>
@@ -774,5 +795,32 @@
   ]
 }
 </script>
+
+    <!-- Additional security scripts -->
+    <script>
+      // Additional layer of security to prevent text selection
+      document.addEventListener('selectstart', function(e) {
+        e.preventDefault();
+        return false;
+      });
+
+      // Prevent drag and drop
+      document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+        return false;
+      });
+
+      // Disable image dragging
+      document.addEventListener('DOMContentLoaded', function() {
+        const images = document.getElementsByTagName('img');
+        for (let i = 0; i < images.length; i++) {
+          images[i].setAttribute('draggable', 'false');
+          images[i].addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+          });
+        }
+      });
+    </script>
   </body>
 </html>
