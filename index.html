@@ -1,826 +1,104 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Default Meta Tags -->
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anubhav Gain — Living atlas</title>
+  <meta name="description" content="Anubhav Gain builds endpoint controls, keeps a fish hatchery in Pakhanjur, and maps the work from Ahmedabad." />
+  <meta name="author" content="Anubhav Gain" />
+  <link rel="canonical" href="https://mranv.github.io/" />
+  <meta property="og:title" content="Anubhav Gain — Living atlas" />
+  <meta property="og:description" content="A walk through the work, then a map of the places, the hatchery, the tools, and what he takes on." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mranv.github.io/" />
+  <meta name="theme-color" content="#efe8dc" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <meta property="og:image" content="https://mranv.github.io/assets/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,460;0,9..144,560;1,9..144,460&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/atlas.css" />
+  <script>
+    (function () {
+      try {
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var narrow = window.matchMedia("(max-width: 800px)").matches;
+        if (reduce || narrow) document.documentElement.classList.add("map-first");
+      } catch (e) {}
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Anubhav Gain",
+    "jobTitle": "Security Engineer",
+    "email": "mailto:iamanubhavgain@gmail.com",
+    "url": "https://mranv.github.io/",
+    "homeLocation": {
+      "@type": "Place",
+      "name": "Ahmedabad, India"
+    },
+    "sameAs": [
+      "https://mranv.pages.dev/",
+      "https://github.com/mranv",
+      "https://github.com/anubhavg-icpl",
+      "https://www.linkedin.com/in/anubhavgain",
+      "https://x.com/AnubhavGain",
+      "https://orcid.org/0009-0004-4131-5428"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#atlas">Skip to the map</a>
 
-    <!-- SEO Meta Tags -->
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content="Anubhav Gain" />
-    <meta name="description" content="Anubhav Gain is a cybersecurity leader, entrepreneur, and security engineer with dual roles at Infopercept Consulting and TechAnv Consulting. He drives innovation in XDR/OXDR platform development, DevSecOps, cloud security, and open source solutions to build robust, scalable defenses." />
-
-    <!-- OG Meta Tags -->
-    <meta property="og:title" content="Anubhav Gain | Cybersecurity Leader, Security Engineer & CEO" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mranv.github.io" />
-    <meta property="og:image" content="https://cyberdefenders-storage.s3.me-central-1.amazonaws.com/profile-badges/mranv.png" />
-    <meta property="og:description" content="Anubhav Gain leads cutting-edge security platform development and cybersecurity research at Infopercept Consulting and TechAnv Consulting. Explore his work on XDR/OXDR platforms, DevSecOps, and cloud security." />
-
-    <!-- Keywords -->
-    <meta name="keywords" content="Anubhav Gain, Cybersecurity Leader, Security Engineer, CEO, XDR Platform, DevSecOps, Open Source Security, Cybersecurity Research, Cloud Security, Security Automation, Rust Development, Infopercept, TechAnv Consulting, Infrastructure Security, Threat Detection, Fraud Detection, SIEM, Container Orchestration, System Hardening" />
-
-    <!-- Title -->
-    <title>Anubhav Gain | Cybersecurity Leader, Security Engineer & CEO</title>
-
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png" />
-    <link rel="manifest" href="assets/images/favicon/site.webmanifest" />
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/vendors.min.css" />
-    <link rel="stylesheet" href="css/icon.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
-    <link rel="stylesheet" href="demos/freelancer/freelancer.css" />
-
-    <!-- Right-click disable script -->
-    <script>
-      document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-        return false;
-      });
-
-      document.addEventListener('keydown', function(e) {
-        // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
-        if (
-          e.keyCode === 123 ||
-          (e.ctrlKey && e.shiftKey && e.keyCode === 73) ||
-          (e.ctrlKey && e.shiftKey && e.keyCode === 74) ||
-          (e.ctrlKey && e.keyCode === 85)
-        ) {
-          e.preventDefault();
-          return false;
-        }
-      });
-    </script>
-
-    <!-- Schema.org markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Anubhav Gain",
-      "jobTitle": "Cybersecurity Leader & CEO",
-      "url": "https://mranv.github.io",
-      "worksFor": [
-        {
-          "@type": "Organization",
-          "name": "Infopercept Consulting"
-        },
-        {
-          "@type": "Organization",
-          "name": "TechAnv Consulting"
-        }
-      ],
-      "knowsAbout": [
-        "Security Engineering",
-        "XDR/OXDR Platforms",
-        "DevSecOps",
-        "Cloud Security",
-        "Open Source Development",
-        "Rust Programming",
-        "Cybersecurity Research"
-      ]
-    }
-    </script>
-  </head>
-
-  <body data-mobile-nav-style="classic" class="custom-cursor" oncontextmenu="return false;">
-    <!-- start cursor -->
-    <div class="cursor-page-inner">
-      <div class="circle-cursor circle-cursor-inner"></div>
-      <div class="circle-cursor circle-cursor-outer"></div>
-    </div>
-    <!-- end cursor -->
-    <!-- start header -->
-    <header>
-      <!-- start navigation -->
-      <nav
-        class="navbar navbar-expand-lg header-transparent bg-transparent disable-fixed"
-        data-header-hover="dark"
-      >
-        <div class="container-fluid">
-          <div class="col-auto col-lg-2 me-lg-0 me-auto">
-            <a class="navbar-brand" href="index.html">
-              <img
-                src="assets/images/logo.svg"
-                data-at2x="assets/images/logo.svg"
-                alt=""
-                class="default-logo"
-              />
-              <img
-                src="assets/images/logo.svg"
-                data-at2x="assets/images/logo.svg"
-                alt=""
-                class="alt-logo"
-              />
-              <img
-                src="assets/images/logo.svg"
-                data-at2x="assets/images/logo.svg"
-                alt=""
-                class="mobile-logo"
-              />
-            </a>
-          </div>
-          <div class="col-auto col-lg-3 text-end lg-pe-0">
-            <div class="header-icon">
-              <a href="mailto:iamanubhavgain@gmail.com" class="text-white"
-                >iamanubhavgain@gmail.com</a
-              >
-              <div
-                class="header-push-button hamburger-push-button icon sm-pe-15px"
-              >
-                <div class="push-button">
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-      <!-- end navigation -->
-      <!-- start hamburger menu -->
-      <div
-        class="push-menu hamburger-nav header-dark hamburger-menu-half bg-dark-gray md-w-60 sm-w-100"
-        style="background-image: url(images/demo-gym-and-fitness-menu-bg.jpg)"
-      >
-        <span class="close-menu text-dark-gray bg-white"
-          ><i class="fa-solid fa-xmark"></i
-        ></span>
-        <div
-          class="d-flex flex-column justify-content-center h-100 ps-18 pb-12 xxl-p-12 sm-p-20px"
-        >
-          <div
-            class="hamburger-menu menu-list-wrapper w-80 lg-w-100 lg-no-margin sm-mt-auto sm-mb-auto"
-            data-scroll-options='{ "theme": "light" }'
-          >
-            <ul class="menu-item-list fw-500 p-0">
-              <li class="menu-item">
-                <a href="#about" class="inner-link nav-link">About</a>
-              </li>
-              <li class="menu-item">
-                <a
-                  href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQB_UyDFVLcTXU3gZ3G8leNvFiTPzsQvvUbm_esIXXaImwiTJAfGE4olOY1h62zhipg5B8AYML0puAS/pub?output=pdf"
-                  target="_blank"
-                  class="inner-link nav-link"
-                  >Certs</a
-                >
-              </li>
-              <li class="menu-item">
-                <a
-                  href="https://mranv.pages.dev"
-                  target="_blank"
-                  class="inner-link nav-link"
-                  >Blogs</a
-                >
-              </li>
-              <li class="menu-item">
-                <a href="#contact" class="inner-link nav-link">Contact</a>
-              </li>
-              <li class="menu-item">
-                <a href="#expertise" class="inner-link nav-link">Expertise</a>
-              </li>
-              <li class="menu-item">
-                <a
-                  href="https://anubhav-resume.vercel.app"
-                  target="_blank"
-                  class="inner-link nav-link"
-                  >Resume</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="w-90 xxl-w-100 d-none d-lg-inline-block">
-            <div class="row row-cols-1 row-cols-xl-2 menu-address">
-              <div class="col">
-                <span class="text-white fs-16 ls-05px"
-                  >Contact information</span
-                >
-                <div
-                  class="h-1px w-90 lg-w-100 bg-white-transparent-extra-light mt-15px mb-15px"
-                ></div>
-                <p class="fs-15 lh-26 w-90 xl-w-100 text-white fw-300">
-                  Raipur, Chattishgarh, India
-                </p>
-              </div>
-              <div class="col">
-                <span class="text-white fs-16 ls-05px">Connect with us</span>
-                <div
-                  class="h-1px w-90 xxl-w-100 bg-white-transparent-extra-light mt-15px mb-15px"
-                ></div>
-                <p class="fs-15 lh-28 w-90 xxl-w-100 lg-mb-0 fw-300">
-                  <a
-                    href="mailto:iamanubhavgain@gmail.com"
-                    class="d-block text-white text-white-hover"
-                    >iamanubhavgain@gmail.com</a
-                  ><a href="tel:9407601376" class="text-white text-white-hover"
-                    >+91 94076 01376</a
-                  >
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- end hamburger menu -->
+  <section class="walk" id="walk" aria-label="Walk through the work">
+    <p class="sr" id="walk-desc">A side-on path. Walk with A and D, the arrow keys, the on-screen buttons, or a sideways swipe. Five signs mark Pakhanjur, Vadodara, Ahmedabad, Ahmedabad again, and Mumbai. The end of the path opens the map.</p>
+    <header class="mast">
+      <p class="brand">Anubhav Gain<span>Living atlas</span></p>
+      <a class="to-map" href="#atlas">The map</a>
     </header>
-    <!-- end header -->
-    <!-- start section -->
-    <section
-      class="full-screen magic-cursor ipad-top-space-margin md-p-0 round-cursor bg-base-color bg-sliding-line overflow-hidden position-relative md-h-850px sm-h-750px"
-      id="home"
-    >
-      <div
-        id="particles-style-01"
-        class="h-100 position-absolute left-0px top-0 w-100"
-        data-particle="true"
-        data-particle-options='{"particles": {"number": {"value": 15,"density": {"enable": true,"value_area": 2000}},"color": {"value": ["#000000", "#000000", "#000000", "#000000", "#000000"]},"shape": {"type": "circle","stroke":{"width":0,"color":"#000000"}},"opacity": {"value": 0.3,"random": false,"anim": {"enable": false,"speed": 1,"sync": false}},"size": {"value": 8,"random": true,"anim": {"enable": false,"sync": true}},"line_linked":{"enable":false,"distance":0,"color":"#ffffff","opacity":0.4,"width":1},"move": {"enable": true,"speed":1,"direction": "right","random": false,"straight": false}},"interactivity": {"detect_on": "canvas","events": {"onhover": {"enable": false,"mode": "repulse"},"onclick": {"enable": false,"mode": "push"},"resize": true}},"retina_detect": false}'
-      ></div>
-      <img
-        src="https://via.placeholder.com/435x468"
-        class="position-absolute top-35 left-minus-100px left-img d-none md-d-block"
-        data-bottom-top="transform: translateY(-50px)"
-        data-top-bottom="transform: translateY(50px)"
-        alt=""
-      />
-      <div class="container h-100">
-        <div class="row align-items-start align-items-lg-center h-100">
-          <div
-            class="col-xl-6 col-lg-8 md-pt-15"
-            data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'
-          >
-            <div class="fs-130 sm-fs-120 lh-110 text-white fw-700 ls-minus-5px">
-              <span class="text-outline">Anubhav</span
-              ><i class="bi bi-arrow-up-right icon-very-medium lh-0 ms-5px"></i>
-            </div>
-            <div class="ps-20">
-              <div class="fs-130 sm-fs-120 text-white fw-700 ls-minus-5px">
-                Gain
-              </div>
-              <div
-                class="top-minus-20px sm-top-minus-20px right-minus-3px sm-right-0px position-relative"
-              >
-                <span
-                  class="text-white fs-13 lh-36 fw-500 bg-black ps-20px pe-20px text-uppercase d-inline-block ls-1px mb-25px ms-5px"
-                  >Cyber Security Professional & Leader</span
-                >
-                <div
-                  class="fs-19 lh-26 text-black fw-500 w-65 md-w-70 sm-w-100"
-                >
-                  Driving secure digital futures with innovative cybersecurity strategies and enterprise-grade security solutions.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="position-absolute right-100px bottom-minus-100px w-55 md-w-60 xs-w-100 md-right-150px xs-right-0px"
-          >
-            <img
-              src="images/demo-freelancer-03.png"
-              class="position-absolute top-20 right-minus-50px"
-              alt=""
-              data-bottom-top="transform: translateY(-150px)"
-              data-top-bottom="transform: translateY(150px)"
-            />
-            <img
-              src="images/demo-freelancer-04.png"
-              class="position-absolute top-50 left-150px z-index-9 animation-float"
-              alt=""
-              data-bottom-top="transform: translateY(-50px)"
-              data-top-bottom="transform: translateY(50px)"
-            />
-            <div class="atropos" data-atropos>
-              <div class="atropos-scale">
-                <div class="atropos-rotate">
-                  <div class="atropos-inner text-center">
-                    <div
-                      data-atropos-offset="-5"
-                      class="position-absolute left-0px right-0px"
-                    >
-                      <img src="images/demo-freelancer-01.png" alt="" />
-                    </div>
-                    <img
-                      data-atropos-offset="5"
-                      class="position-relative"
-                      src="assets/images/about_img-removebg-1.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="stage" id="stage" aria-describedby="walk-desc">
+      <div class="world" id="world"></div>
+      <div class="walker" id="walker" aria-hidden="true">
+        <div class="person">
+          <img class="frame a" src="assets/walker-a.svg" alt="" width="80" height="112" />
+          <img class="frame b" src="assets/walker-b.svg" alt="" width="80" height="112" />
         </div>
       </div>
-    </section>
-    <!-- end section -->
-    <!-- start section -->
-    <section id="about" class="big-section bg-gradient-top-very-light-gray pb-0 sm-pt-0">
-      <div class="overlap-section mb-2 top-minus-40px position-relative z-index-9 md-mb-0">
-          <div class="fs-335 text-white fw-700 ls-minus-10px md-ls-minus-5px text-end text-shadow-large">
-              devsecops
-          </div>
+      <p class="hud" id="hud" aria-live="polite"></p>
+      <div class="controls" role="group" aria-label="Walking controls">
+        <button type="button" id="walk-left" aria-label="Walk left"><span aria-hidden="true">←</span></button>
+        <button type="button" id="walk-right" aria-label="Walk right"><span aria-hidden="true">→</span></button>
       </div>
-      <div class="container">
-          <div class="row">
-              <div class="col-12">
-                  <div class="row align-items-center mb-6" data-anime='{ "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                      <div class="col-10">
-                          <span class="text-base-color fw-700 text-uppercase fs-14 ls-05px">About Anubhav Gain</span>
-                      </div>
-                      <div class="col-2 text-end">
-                          <span class="text-base-color fs-14 fw-700">01</span>
-                      </div>
-                      <div class="col-12 mt-5px">
-                          <div class="separator-line-2px w-100 d-block bg-base-color"></div>
-                      </div>
-                  </div>
-                  <div class="row mb-6">
-                      <div class="col-xl-4 col-lg-5" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                          <h4 class="fw-700 ls-minus-1px mb-20px">
-                              Crafting secure digital solutions through innovative cybersecurity practices
-                          </h4>
-                          <p class="w-85 lg-w-100">
-                              Leading security platform development with expertise in XDR/OXDR systems and open source security solutions.
-                          </p>
-                      </div>
-                      <div class="col-xl-8 col-lg-7" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                          <div class="row align-items-center border-bottom border-color-light-medium-gray mb-30px pb-30px">
-                              <div class="col-md-3">
-                                  <div class="fs-18 fw-600">Engineer 🛡️</div>
-                              </div>
-                              <div class="col-md-9 last-paragraph-no-margin">
-                                  <p>
-                                      Software Engineer specializing in innovative XDR/OXDR platform development and security automation with expertise in Rust, cloud infrastructure, and advanced threat detection.
-                                  </p>
-                              </div>
-                          </div>
-                          <div class="row align-items-center border-bottom border-color-light-medium-gray mb-30px pb-30px">
-                              <div class="col-md-3">
-                                  <div class="fs-18 fw-600">Expertise 🔐</div>
-                              </div>
-                              <div class="col-md-9 last-paragraph-no-margin">
-                                  <p>
-                                      XDR/OXDR Platform Development, Security Automation, Cloud Infrastructure, DevSecOps, and Open Source Security Solutions.
-                                  </p>
-                              </div>
-                          </div>
-                          <div class="row align-items-center">
-                              <div class="col-md-3">
-                                  <div class="fs-18 fw-600">Research 🔍</div>
-                              </div>
-                              <div class="col-md-9 last-paragraph-no-margin">
-                                  <p>
-                                      Active in cybersecurity research and innovative defense mechanism development through TechAnv Consulting.
-                                  </p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="row row-cols-1 row-cols-lg-4 row-cols-md-2" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                      <div class="col last-paragraph-no-margin lg-mb-30px">
-                          <span class="fw-600">Current Role</span>
-                          <p>Software Engineer at Infopercept Consulting</p>
-                      </div>
-                      <div class="col last-paragraph-no-margin lg-mb-30px">
-                          <span class="fw-600">Location</span>
-                          <p>Ahmedabad, Gujarat</p>
-                      </div>
-                      <div class="col last-paragraph-no-margin sm-mb-30px">
-                          <span class="fw-600">Focus Areas</span>
-                          <p>XDR Development, Security Automation, Cybersecurity Research</p>
-                      </div>
-                      <div class="col last-paragraph-no-margin">
-                          <span class="fw-600">Education</span>
-                          <p>B.Tech in Cyber/Computer Forensics & Counterterrorism</p>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </section>
-    <!-- end section -->
-
-    <!-- start section -->
-    <section class="overflow-hidden position-relative half-section overlap-height pb-0">
-      <div class="container-fluid overlap-gap-section">
-          <div class="row position-relative">
-              <div class="col swiper swiper-width-auto text-center pb-30px sm-pb-0px"
-                   data-slider-options='{ "slidesPerView": "auto", "spaceBetween":60, "speed": 8000, "loop": true, "autoplay": { "delay":0, "disableOnInteraction": false }, "allowTouchMove": false, "effect": "slide" }'>
-                  <div class="swiper-wrapper marquee-slide">
-                      <!-- start client item -->
-                      <div class="swiper-slide">
-                          <div class="fs-180 xl-fs-120 sm-fs-80 text-extra-medium-gray fw-600 ls-minus-8px sm-ls-minus-4px word-break-normal">
-                              xdr platform.
-                          </div>
-                      </div>
-                      <!-- end client item -->
-                      <!-- start client item -->
-                      <div class="swiper-slide">
-                          <div class="fs-180 xl-fs-120 sm-fs-80 text-extra-medium-gray fw-600 ls-minus-8px sm-ls-minus-4px word-break-normal">
-                              security automation.
-                          </div>
-                      </div>
-                      <!-- end client item -->
-                      <!-- start client item -->
-                      <div class="swiper-slide">
-                          <div class="fs-180 xl-fs-120 sm-fs-80 text-extra-medium-gray fw-600 ls-minus-8px sm-ls-minus-4px word-break-normal">
-                              rust development.
-                          </div>
-                      </div>
-                      <!-- end client item -->
-                      <!-- start client item -->
-                      <div class="swiper-slide">
-                          <div class="fs-180 xl-fs-120 sm-fs-80 text-extra-medium-gray fw-600 ls-minus-8px sm-ls-minus-4px word-break-normal">
-                              cloud security.
-                          </div>
-                      </div>
-                      <!-- end client item -->
-                      <!-- start client item -->
-                      <div class="swiper-slide">
-                          <div class="fs-180 xl-fs-120 sm-fs-80 text-extra-medium-gray fw-600 ls-minus-8px sm-ls-minus-4px word-break-normal">
-                              devsecops.
-                          </div>
-                      </div>
-                      <!-- end client item -->
-                      <!-- start client item -->
-                      <div class="swiper-slide">
-                          <div class="fs-180 xl-fs-120 sm-fs-80 text-extra-medium-gray fw-600 ls-minus-8px sm-ls-minus-4px word-break-normal">
-                              open source.
-                          </div>
-                      </div>
-                      <!-- end client item -->
-                      <!-- start client item -->
-                      <div class="swiper-slide">
-                          <div class="fs-180 xl-fs-120 sm-fs-80 text-extra-medium-gray fw-600 ls-minus-8px sm-ls-minus-4px word-break-normal">
-                              threat detection.
-                          </div>
-                      </div>
-                      <!-- end client item -->
-                      <!-- start client item -->
-                      <div class="swiper-slide">
-                          <div class="fs-180 xl-fs-120 sm-fs-80 text-extra-medium-gray fw-600 ls-minus-8px sm-ls-minus-4px word-break-normal">
-                              infrastructure security.
-                          </div>
-                      </div>
-                      <!-- end client item -->
-                      <!-- start client item -->
-                      <div class="swiper-slide">
-                          <div class="fs-180 xl-fs-120 sm-fs-80 text-extra-medium-gray fw-600 ls-minus-8px sm-ls-minus-4px word-break-normal">
-                              system hardening.
-                          </div>
-                      </div>
-                      <!-- end client item -->
-                  </div>
-              </div>
-          </div>
-      </div>
-   </section>
-    <!-- end section -->
-    <!-- start section -->
-    <section class="bg-base-color bg-sliding-line position-relative pb-0">
-      <div class="container-fluid overlap-section">
-          <div class="row position-relative">
-              <div class="col swiper swiper-width-auto text-center pb-30px sm-pb-0px"
-                  data-slider-options='{ "slidesPerView": "auto", "spaceBetween":50, "speed": 8000, "loop": true, "autoplay": { "delay":0, "disableOnInteraction": false, "reverseDirection": true }, "allowTouchMove": false, "effect": "slide" }'>
-                  <div class="swiper-wrapper marquee-slide">
-                      <!-- start client item -->
-                      <div class="swiper-slide">
-                          <div class="fs-150 xl-fs-120 sm-fs-80 text-black fw-600 ls-minus-5px sm-ls-minus-4px word-break-normal">
-                              rust development.
-                          </div>
-                      </div>
-                      <!-- end client item -->
-                      <!-- start client item -->
-                      <div class="swiper-slide">
-                          <div class="fs-150 xl-fs-120 sm-fs-80 text-black fw-600 ls-minus-5px sm-ls-minus-4px word-break-normal">
-                              security platform.
-                          </div>
-                      </div>
-                      <!-- end client item -->
-                      <!-- start client item -->
-                      <div class="swiper-slide">
-                          <div class="fs-150 xl-fs-120 sm-fs-80 text-black fw-600 ls-minus-5px sm-ls-minus-4px word-break-normal">
-                              opensearch dashboards.
-                          </div>
-                      </div>
-                      <!-- end client item -->
-                      <!-- start client item -->
-                      <div class="swiper-slide">
-                          <div class="fs-150 xl-fs-120 sm-fs-80 text-black fw-600 ls-minus-5px sm-ls-minus-4px word-break-normal">
-                              security automation.
-                          </div>
-                      </div>
-                      <!-- end client item -->
-                      <!-- start client item -->
-                      <div class="swiper-slide">
-                          <div class="fs-150 xl-fs-120 sm-fs-80 text-black fw-600 ls-minus-5px sm-ls-minus-4px word-break-normal">
-                              docker kubernetes.
-                          </div>
-                      </div>
-                      <!-- end client item -->
-                      <!-- start client item -->
-                      <div class="swiper-slide">
-                          <div class="fs-150 xl-fs-120 sm-fs-80 text-black fw-600 ls-minus-5px sm-ls-minus-4px word-break-normal">
-                              infrastructure security.
-                          </div>
-                      </div>
-                      <!-- end client item -->
-                      <!-- start client item -->
-                      <div class="swiper-slide">
-                          <div class="fs-150 xl-fs-120 sm-fs-80 text-black fw-600 ls-minus-5px sm-ls-minus-4px word-break-normal">
-                              system hardening.
-                          </div>
-                      </div>
-                      <!-- end client item -->
-                      <!-- start client item -->
-                      <div class="swiper-slide">
-                          <div class="fs-150 xl-fs-120 sm-fs-80 text-black fw-600 ls-minus-5px sm-ls-minus-4px word-break-normal">
-                              open source security.
-                          </div>
-                      </div>
-                      <!-- end client item -->
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div id="expertise" class="container overflow-y-hidden">
-          <div class="row align-items-end flex-column-reverse flex-lg-row">
-              <div class="col-lg-7 position-relative overflow-hidden">
-                  <div class="outside-box-bottom-2 outside-box-left-5">
-                      <div class="atropos" data-atropos>
-                          <div class="atropos-scale">
-                              <div class="atropos-rotate">
-                                  <div class="atropos-inner text-center overflow-visible">
-                                      <div data-atropos-offset="-1" class="position-absolute left-0px right-0px">
-                                          <img src="images/demo-freelancer-01.png" class="w-70" alt="" />
-                                      </div>
-                                      <img data-atropos-offset="5" class="position-relative" src="assets/images/about_img-removebg.png" alt="" />
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-5 mb-6 mt-6 md-mb-0" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                  <h4 class="fw-600 text-white mb-20px ls-minus-1px">
-                      I develop and enhance security platforms with a focus on XDR/OXDR solutions and open source security.
-                  </h4>
-                  <p class="w-90 text-black xl-w-100">
-                      Currently leading security platform development at Infopercept Consulting while pioneering cybersecurity research and innovation as CEO at TechAnv Consulting.
-                  </p>
-                  <div class="progress-bar-style-01 mt-14 d-block">
-                      <div class="progress mb-12 sm-mb-20 bg-transparent">
-                          <div class="progress-bar-title d-inline-block text-black text-uppercase fs-14 fw-600">
-                              Security Platform Development
-                          </div>
-                          <div class="progress-bar bg-black" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
-                              <span class="progress-bar-percent text-center bg-black fs-11 lh-12 text-white">95%</span>
-                          </div>
-                      </div>
-
-                      <div class="progress mb-12 sm-mb-20 bg-transparent">
-                          <div class="progress-bar-title d-inline-block text-black text-uppercase fs-14 fw-600">
-                              Rust Development
-                          </div>
-                          <div class="progress-bar bg-black" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                              <span class="progress-bar-percent text-center bg-black fs-11 lh-12 text-white">90%</span>
-                          </div>
-                      </div>
-
-                      <div class="progress mb-12 sm-mb-20 bg-transparent">
-                          <div class="progress-bar-title d-inline-block text-black text-uppercase fs-14 fw-600">
-                              Security Automation
-                          </div>
-                          <div class="progress-bar bg-black" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
-                              <span class="progress-bar-percent text-center bg-black fs-11 lh-12 text-white">92%</span>
-                          </div>
-                      </div>
-
-                      <div class="progress mb-12 sm-mb-20 bg-transparent">
-                          <div class="progress-bar-title d-inline-block text-black text-uppercase fs-14 fw-600">
-                              Infrastructure Security
-                          </div>
-                          <div class="progress-bar bg-black" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
-                              <span class="progress-bar-percent text-center bg-black fs-11 lh-12 text-white">88%</span>
-                          </div>
-                      </div>
-
-                      <div class="progress mb-12 sm-mb-20 bg-transparent">
-                          <div class="progress-bar-title d-inline-block text-black text-uppercase fs-14 fw-600">
-                              Container Orchestration
-                          </div>
-                          <div class="progress-bar bg-black" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                              <span class="progress-bar-percent text-center bg-black fs-11 lh-12 text-white">85%</span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-    <!-- end section -->
-
-    <!-- start footer -->
-    <footer id="contact" class="position-relative overflow-hidden pb-0">
-      <img src="images/demo-freelancer-03.png" class="position-absolute top-0px right-minus-100px" alt="" />
-      <div class="container position-relative">
-          <img src="images/demo-freelancer-04.png" class="position-absolute top-20px right-minus-100px d-none d-md-block" alt="" />
-          <div class="row">
-              <div class="col-md-12 position-relative">
-                  <div class="fs-70 md-fs-50 sm-fs-40 ls-minus-3px fw-700 text-black mb-10px sm-ls-minus-1px">
-                      Let's secure digital futures.
-                  </div>
-                  <div class="d-inline-block">
-                      <i class="bi bi-envelope icon-extra-large md-icon-large me-10px text-base-color align-middle"></i>
-                      <a href="mailto:iamanubhavgain@gmail.com" class="fs-50 sm-fs-40 text-base-color fw-600 align-middle ls-minus-3px sm-ls-minus-1px">iamanubhavgain@gmail.com</a>
-                  </div>
-              </div>
-          </div>
-          <div class="row g-0 align-items-center border-top border-2 border-color-dark-gray pt-30px mt-6 mb-3">
-              <div class="col-md-7 last-paragraph-no-margin sm-mb-20px">
-                  <p>
-                      Passionate about creating secure, scalable solutions through innovative cybersecurity strategies and open source contributions.
-                  </p>
-              </div>
-              <div class="col-md-5 elements-social social-text-style-01 text-start text-md-end sm-mb-20px">
-                  <ul class="medium-icon dark fw-600">
-                      <li>
-                          <a class="linkedin" href="https://www.linkedin.com/in/anubhavgain" target="_blank">Li.</a>
-                      </li>
-                      <li>
-                          <a class="github" href="http://github.com/mranv" target="_blank">GH.</a>
-                      </li>
-                      <li>
-                          <a class="twitter" href="http://www.twitter.com/AnubhavGain" target="_blank">Tw.</a>
-                      </li>
-                      <li>
-                          <a class="blog" href="https://mranv.pages.dev" target="_blank">Blog.</a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-   </footer>
-    <!-- end footer -->
-    <!-- start scroll progress -->
-    <div class="scroll-progress d-none d-xxl-block">
-      <a href="#" class="scroll-top" aria-label="scroll">
-        <span class="scroll-text">Scroll</span
-        ><span class="scroll-line"><span class="scroll-point"></span></span>
-      </a>
     </div>
-    <!-- end scroll progress -->
-    <!-- javascript libraries -->
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/vendors.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Anubhav Gain",
-  "jobTitle": "Chief Executive Officer & Cybersecurity Leader",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "TechAnv Consulting"
-  },
-  "alumniOf": [
-    {
-      "@type": "CollegeOrUniversity",
-      "name": "Parul University"
-    },
-    {
-      "@type": "CollegeOrUniversity",
-      "name": "Charles Sturt University"
-    }
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Vadodara",
-    "addressRegion": "Gujarat",
-    "addressCountry": "India"
-  },
-  "email": "iamanubhavgain@gmail.com",
-  "url": "https://mranv.pages.dev",
-  "sameAs": [
-    "https://in.linkedin.com/in/anubhavgain",
-    "https://github.com/mranv"
-  ],
-  "knowsAbout": [
-    "Information Security",
-    "Threat & Vulnerability Management",
-    "Cloud Security",
-    "Network Security",
-    "Fraud Detection",
-    "Cyber Forensics",
-    "Responsive Web Design",
-    "DevSecOps",
-    "Open Source Security"
-  ],
-  "hasCredential": [
-    {
-      "@type": "EducationalOccupationalCredential",
-      "name": "Bachelor of Technology in Cyber/Computer Forensics and Counterterrorism",
-      "issuedBy": {
-        "@type": "CollegeOrUniversity",
-        "name": "Parul University"
-      }
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      "name": "Licentiate in Ransomware Techniques",
-      "issuedBy": {
-        "@type": "CollegeOrUniversity",
-        "name": "Charles Sturt University"
-      }
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      "name": "Licentiate in Cybersecurity Management",
-      "issuedBy": {
-        "@type": "CollegeOrUniversity",
-        "name": "Charles Sturt University"
-      }
-    }
-  ],
-  "hasOccupation": [
-    {
-      "@type": "Occupation",
-      "name": "Chief Executive Officer",
-      "occupationLocation": {
-        "@type": "Organization",
-        "name": "TechAnv Consulting"
-      },
-      "startDate": "2022-12"
-    },
-    {
-      "@type": "Occupation",
-      "name": "Security Engineer",
-      "occupationLocation": {
-        "@type": "Organization",
-        "name": "Lucid Growth"
-      },
-      "startDate": "2023-10",
-      "endDate": "2023-11"
-    },
-    {
-      "@type": "Occupation",
-      "name": "Data Analyst - Fraud Detection",
-      "occupationLocation": {
-        "@type": "Organization",
-        "name": "JPMorgan Chase & Co."
-      },
-      "startDate": "2023-07"
-    },
-    {
-      "@type": "Occupation",
-      "name": "IT Specialist",
-      "occupationLocation": {
-        "@type": "Organization",
-        "name": "Parul University"
-      },
-      "startDate": "2022-11",
-      "endDate": "2023-10"
-    }
-  ]
-}
-</script>
+    <button type="button" class="close-walk" id="close-walk">Leave the path</button>
+  </section>
 
-    <!-- Additional security scripts -->
-    <script>
-      // Additional layer of security to prevent text selection
-      document.addEventListener('selectstart', function(e) {
-        e.preventDefault();
-        return false;
-      });
+  <main id="atlas" class="atlas" tabindex="-1"></main>
 
-      // Prevent drag and drop
-      document.addEventListener('dragstart', function(e) {
-        e.preventDefault();
-        return false;
-      });
+  <noscript>
+    <main>
+      <h1>Anubhav Gain</h1>
+      <p>I build the controls that decide what an endpoint is allowed to run, and I still keep a fish hatchery in Pakhanjur.</p>
+      <p>Ahmedabad for the work. Pakhanjur for the water. Vadodara is where the desk started.</p>
+      <ul>
+        <li><a href="https://mranv.pages.dev/">Field notes</a></li>
+        <li><a href="https://github.com/mranv">GitHub</a></li>
+        <li><a href="https://github.com/anubhavg-icpl">Work shelf</a></li>
+        <li><a href="https://orcid.org/0009-0004-4131-5428">ORCID</a></li>
+        <li><a href="/old/">Previous site</a></li>
+        <li><a href="mailto:iamanubhavgain@gmail.com">Email</a></li>
+      </ul>
+    </main>
+  </noscript>
 
-      // Disable image dragging
-      document.addEventListener('DOMContentLoaded', function() {
-        const images = document.getElementsByTagName('img');
-        for (let i = 0; i < images.length; i++) {
-          images[i].setAttribute('draggable', 'false');
-          images[i].addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-          });
-        }
-      });
-    </script>
-  </body>
+  <script src="js/content.js"></script>
+  <script src="js/atlas.js"></script>
+</body>
 </html>

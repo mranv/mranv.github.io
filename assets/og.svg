@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#efe8dc"/>
+  <text x="88" y="168" fill="#5e584f" font-family="Liberation Serif, Noto Serif, serif" font-size="22" letter-spacing="5">LIVING ATLAS</text>
+  <text x="88" y="268" fill="#1a1714" font-family="Liberation Serif, Noto Serif, serif" font-size="78">Anubhav Gain</text>
+  <text x="88" y="332" fill="#1a1714" font-family="Liberation Serif, Noto Serif, serif" font-size="30">From the hatchery in Pakhanjur to the work.</text>
+  <g fill="none" stroke="#1a1714" stroke-width="6">
+    <rect x="88" y="378" width="86" height="10" fill="#2f6f62" stroke="none"/>
+    <rect x="186" y="378" width="86" height="10" fill="#c4a15a" stroke="none"/>
+    <rect x="284" y="378" width="86" height="10" fill="#b85c38" stroke="none"/>
+    <rect x="382" y="378" width="86" height="10" fill="#3d4d78" stroke="none"/>
+    <rect x="480" y="378" width="86" height="10" fill="#1c1916" stroke="none"/>
+  </g>
+  <path d="M0 500 H1200" stroke="#d9d0c3" stroke-width="2"/>
+  <image href="hill.svg" x="620" y="430" width="280" height="74"/>
+  <image href="pond.svg" x="860" y="448" width="160" height="82"/>
+  <image href="tree.svg" x="760" y="360" width="110" height="150"/>
+  <image href="walker-a.svg" x="1048" y="368" width="116" height="162"/>
+</svg>
