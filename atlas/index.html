@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anubhav Gain — Living atlas</title>
+  <meta name="description" content="Anubhav Gain builds endpoint controls, keeps a fish hatchery in Pakhanjur, and maps the work from Ahmedabad." />
+  <meta name="author" content="Anubhav Gain" />
+  <meta name="robots" content="noindex, follow" />
+  <meta property="og:title" content="Anubhav Gain — Living atlas" />
+  <meta property="og:description" content="A walk through the work, then a map of the places, the hatchery, the tools, and what he takes on." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mranv.github.io/" />
+  <meta name="theme-color" content="#efe8dc" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <meta property="og:image" content="https://mranv.github.io/assets/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,460;0,9..144,560;1,9..144,460&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/atlas.css" />
+  <script>
+    (function () {
+      try {
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var narrow = window.matchMedia("(max-width: 800px)").matches;
+        if (reduce || narrow) document.documentElement.classList.add("map-first");
+      } catch (e) {}
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Anubhav Gain",
+    "jobTitle": "Security Engineer",
+    "email": "mailto:iamanubhavgain@gmail.com",
+    "url": "https://mranv.github.io/",
+    "homeLocation": {
+      "@type": "Place",
+      "name": "Ahmedabad, India"
+    },
+    "sameAs": [
+      "https://mranv.pages.dev/",
+      "https://github.com/mranv",
+      "https://github.com/anubhavg-icpl",
+      "https://www.linkedin.com/in/anubhavgain",
+      "https://x.com/AnubhavGain",
+      "https://orcid.org/0009-0004-4131-5428"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#atlas">Skip to the map</a>
+
+  <section class="walk" id="walk" aria-label="Walk through the work">
+    <p class="sr" id="walk-desc">A side-on path. Walk with A and D, the arrow keys, the on-screen buttons, or a sideways swipe. Five signs mark Pakhanjur, Vadodara, Ahmedabad, Ahmedabad again, and Mumbai. The end of the path opens the map.</p>
+    <header class="mast">
+      <p class="brand">Anubhav Gain<span>Living atlas</span></p>
+      <a class="to-map" href="#atlas">The map</a>
+    </header>
+    <div class="stage" id="stage" aria-describedby="walk-desc">
+      <div class="world" id="world"></div>
+      <div class="walker" id="walker" aria-hidden="true">
+        <div class="person">
+          <img class="frame a" src="assets/walker-a.svg" alt="" width="80" height="112" />
+          <img class="frame b" src="assets/walker-b.svg" alt="" width="80" height="112" />
+        </div>
+      </div>
+      <p class="hud" id="hud" aria-live="polite"></p>
+      <div class="controls" role="group" aria-label="Walking controls">
+        <button type="button" id="walk-left" aria-label="Walk left"><span aria-hidden="true">←</span></button>
+        <button type="button" id="walk-right" aria-label="Walk right"><span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+    <button type="button" class="close-walk" id="close-walk">Leave the path</button>
+  </section>
+
+  <main id="atlas" class="atlas" tabindex="-1"></main>
+
+  <noscript>
+    <main>
+      <h1>Anubhav Gain</h1>
+      <p>I build the controls that decide what an endpoint is allowed to run, and I still keep a fish hatchery in Pakhanjur.</p>
+      <p>Ahmedabad for the work. Pakhanjur for the water. Vadodara is where the desk started.</p>
+      <ul>
+        <li><a href="https://mranv.pages.dev/">Field notes</a></li>
+        <li><a href="https://github.com/mranv">GitHub</a></li>
+        <li><a href="https://github.com/anubhavg-icpl">Work shelf</a></li>
+        <li><a href="https://orcid.org/0009-0004-4131-5428">ORCID</a></li>
+        <li><a href="/old/">Previous site</a></li>
+        <li><a href="mailto:iamanubhavgain@gmail.com">Email</a></li>
+      </ul>
+    </main>
+  </noscript>
+
+  <script src="js/content.js"></script>
+  <script src="js/atlas.js"></script>
+</body>
+</html>
