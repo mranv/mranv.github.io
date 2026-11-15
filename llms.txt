@@ -1,0 +1,34 @@
+# Anubhav Gain
+
+> Anubhav Gain (mranv) is a security engineer in Mumbai, India, building endpoint control, XDR pipelines and Rust security tooling at Infopercept Consulting. He also owns Gain Fisheries, a fish hatchery in Pakhanjur, Chhattisgarh.
+
+This file mirrors the facts on https://mranv.github.io/ (the canonical page). Keep the two in step when either changes.
+
+## Profile
+
+- Role: Security Engineer, Infopercept Consulting (Jul 2024 – present)
+- Location: Mumbai, Maharashtra, India
+- Education: B.Tech, Cyber/Computer Forensics and Counterterrorism, Parul University
+- Focus: endpoint security, application allow-listing, XDR / SIEM (Wazuh, OpenSearch), application security and VAPT, DevSecOps, Kubernetes, Rust, Go, eBPF
+- Contact: iamanubhavgain@gmail.com
+
+## Engagements
+
+- Mahindra Finance, endpoint security consultant (May 2026 – present): Invinsense 7.0 Unified Endpoint Control, application allow-listing, policy review to deployment workflows, endpoint telemetry across Windows, macOS and Linux.
+- Infopercept, security software engineer (Jul 2024 – present): deployment architecture for Invinsense XDR / OXDR (single and multi-tenant), custom OpenSearch Dashboards plugins, Rust monitoring agents, Wazuh + Fluent Bit alert pipelines.
+- SBI Life, application security consultant (Mar – May 2026): application security assessments and VAPT, design reviews against financial-sector and data-protection standards.
+
+## Open source
+
+- [eBPF File Monitor](https://github.com/mranv/ebpf-file-monitor): Rust, kernel-level file telemetry
+- [Krustron](https://github.com/anubhavg-icpl/krustron): Go, GitOps across Kubernetes clusters
+- [Agni](https://github.com/anubhavg-icpl/agni): Go TUI for Firecracker microVMs
+
+## Profiles
+
+- [LinkedIn](https://www.linkedin.com/in/anubhavgain)
+- [GitHub (mranv)](https://github.com/mranv)
+- [GitHub (anubhavg-icpl)](https://github.com/anubhavg-icpl)
+- [X](https://x.com/AnubhavGain)
+- [ORCID](https://orcid.org/0009-0004-4131-5428)
+- [Field notes](https://mranv.pages.dev/)

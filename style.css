@@ -87,6 +87,13 @@ video {
   color: var(--muted);
 }
 
+/* Section labels are real <h2>s for the document outline; these two lines
+   keep them looking like the <p class="eyebrow"> labels beside them. */
+h2.eyebrow {
+  margin-block: 1em;
+  font-weight: inherit;
+}
+
 .outline {
   color: transparent;
   -webkit-text-stroke: 1.5px var(--white);
@@ -800,6 +807,15 @@ video {
   font-weight: 300;
   letter-spacing: 0.04em;
   color: rgba(255, 255, 255, 0.8);
+}
+
+.project__desc {
+  margin: 6px 0 0;
+  max-width: 46ch;
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .project__year {

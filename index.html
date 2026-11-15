@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anubhav Gain — Security Engineer</title>
-  <meta name="description" content="Anubhav Gain is a security engineer in Mumbai, India, building endpoint control, XDR pipelines and Rust security tooling at Infopercept. Saying “No” as a Service.">
+  <meta name="description" content="Anubhav Gain is a security engineer in Mumbai, India, building endpoint control, XDR pipelines and Rust tooling at Infopercept. Saying “No” as a Service.">
   <meta name="author" content="Anubhav Gain">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://mranv.github.io/">
@@ -26,6 +26,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@AnubhavGain">
   <meta name="twitter:creator" content="@AnubhavGain">
+  <meta name="twitter:title" content="Anubhav Gain — Security Engineer">
+  <meta name="twitter:description" content="Endpoint control, XDR pipelines and Rust security tooling. Saying “No” as a Service.">
+  <meta name="twitter:image" content="https://mranv.github.io/assets/og.jpg">
   <meta name="twitter:image:alt" content="Anubhav Gain, Security Engineer, beside an orange 3D retro computer whose screen reads NO.">
 
   <link rel="me" href="https://www.linkedin.com/in/anubhavgain">
@@ -49,7 +52,7 @@
         "name": "Anubhav Gain — Security Engineer",
         "inLanguage": "en",
         "dateCreated": "2023-12-23",
-        "dateModified": "2026-09-29",
+        "dateModified": "2026-11-15",
         "isPartOf": { "@id": "https://mranv.github.io/#website" },
         "about": { "@id": "https://mranv.github.io/#person" },
         "mainEntity": { "@id": "https://mranv.github.io/#person" },
@@ -149,6 +152,33 @@
             "addressCountry": "IN"
           }
         }
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://mranv.github.io/#ebpf-file-monitor",
+        "name": "eBPF File Monitor",
+        "description": "Rust utility for kernel-level file telemetry: tracks changes to a specified file and prints a timestamp when it is modified.",
+        "codeRepository": "https://github.com/mranv/ebpf-file-monitor",
+        "programmingLanguage": "Rust",
+        "author": { "@id": "https://mranv.github.io/#person" }
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://mranv.github.io/#krustron",
+        "name": "Krustron",
+        "description": "Open-source Devtron alternative in Go: unified dashboard, GitOps CI/CD pipelines, multi-cluster Kubernetes management and integrated observability and security with fine-grained RBAC.",
+        "codeRepository": "https://github.com/anubhavg-icpl/krustron",
+        "programmingLanguage": "Go",
+        "author": { "@id": "https://mranv.github.io/#person" }
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://mranv.github.io/#agni",
+        "name": "Agni",
+        "description": "Go terminal UI for running Firecracker microVMs, an alternative to firectl.",
+        "codeRepository": "https://github.com/anubhavg-icpl/agni",
+        "programmingLanguage": "Go",
+        "author": { "@id": "https://mranv.github.io/#person" }
       },
       {
         "@type": "ImageObject",
@@ -255,7 +285,7 @@
       <div class="about__body container">
         <div class="about__intro">
           <span class="about__photo"><img src="assets/anubhav-gain.jpg" alt="Anubhav Gain" width="400" height="400" loading="lazy" decoding="async"></span>
-          <p class="eyebrow">(01) About</p>
+          <h2 class="eyebrow">(01) About</h2>
         </div>
         <p class="about__text">
           I’m Anubhav Gain, a security engineer working out of Mumbai. I build
@@ -294,6 +324,7 @@
               <div>
                 <h3 class="project__title">Invinsense UEC</h3>
                 <p class="project__cat">Endpoint control · Application allow-listing</p>
+                <p class="project__desc">Application allow-listing with policy review, approval and deployment workflows, plus endpoint telemetry across Windows, macOS and Linux.</p>
               </div>
               <span class="project__year">2026</span>
             </div>
@@ -306,6 +337,7 @@
               <div>
                 <h3 class="project__title">Invinsense XDR</h3>
                 <p class="project__cat">Multi-tenant XDR · OpenSearch plugins</p>
+                <p class="project__desc">Single and multi-tenant deployment architecture, custom OpenSearch Dashboards plugins, Rust monitoring agents and Wazuh + Fluent Bit alert pipelines.</p>
               </div>
               <span class="project__year">2024</span>
             </div>
@@ -318,6 +350,7 @@
               <div>
                 <h3 class="project__title"><a href="https://github.com/mranv/ebpf-file-monitor">eBPF File Monitor <span aria-hidden="true">↗</span></a></h3>
                 <p class="project__cat">Rust · Kernel-level file telemetry</p>
+                <p class="project__desc">Watches a file from the kernel and timestamps every modification.</p>
               </div>
               <span class="project__year">2024</span>
             </div>
@@ -330,6 +363,7 @@
               <div>
                 <h3 class="project__title"><a href="https://github.com/anubhavg-icpl/krustron">Krustron <span aria-hidden="true">↗</span></a></h3>
                 <p class="project__cat">Go · GitOps across Kubernetes clusters</p>
+                <p class="project__desc">Open-source Devtron alternative: unified dashboard, GitOps CI/CD pipelines and multi-cluster management.</p>
               </div>
               <span class="project__year">2025</span>
             </div>
@@ -342,6 +376,7 @@
               <div>
                 <h3 class="project__title"><a href="https://github.com/anubhavg-icpl/agni">Agni <span aria-hidden="true">↗</span></a></h3>
                 <p class="project__cat">Go TUI · Firecracker microVMs</p>
+                <p class="project__desc">A terminal UI alternative to firectl for running Firecracker microVMs.</p>
               </div>
               <span class="project__year">2026</span>
             </div>
@@ -354,6 +389,7 @@
               <div>
                 <h3 class="project__title">Gain Fisheries</h3>
                 <p class="project__cat">Sustainable aquaculture · Pakhanjur</p>
+                <p class="project__desc">Sustainable fish hatchery in Pakhanjur, Chhattisgarh, running since 2020.</p>
               </div>
               <span class="project__year">2020</span>
             </div>
