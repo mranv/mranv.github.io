@@ -161,6 +161,10 @@ if (hero && canvas) {
       frames[slot] = bitmap;
       loadedCount++;
       updateLoader();
+      // One frame is enough to show the hero; the rest fill in behind it
+      // (nearestFrame covers the gaps). Waiting for all 96 hid the H1 for
+      // 10-20 s on slow connections.
+      hideLoader();
     });
   }
 
@@ -274,6 +278,9 @@ if (hero && canvas) {
     video.load();
     video.remove();
   }
+
+  // A stalled or blocked video must never leave the overlay up.
+  setTimeout(hideLoader, 4000);
 
   extractFrames()
     .catch((err) => console.error("Hero video scrub failed:", err))
@@ -399,6 +406,16 @@ if (work && workTrack) {
     });
     workCurrent.textContent = String(current + 1).padStart(2, "0");
   }
+
+  // Releases the card art; see the .is-near rule in style.css.
+  new IntersectionObserver(
+    ([entry], io) => {
+      if (!entry.isIntersecting) return;
+      work.classList.add("is-near");
+      io.disconnect();
+    },
+    { rootMargin: "100% 0px" }
+  ).observe(work);
 
   window.addEventListener("scroll", updateWork, { passive: true });
   window.addEventListener("resize", measureWork);

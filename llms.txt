@@ -1,14 +1,14 @@
 # Anubhav Gain
 
-> Anubhav Gain (mranv) is a security engineer in Mumbai, India, building endpoint control, XDR pipelines and Rust security tooling at Infopercept Consulting. He also owns Gain Fisheries, a fish hatchery in Pakhanjur, Chhattisgarh.
+> Anubhav Gain (mranv) is a security engineer in Mumbai, India, building endpoint control, XDR pipelines and Rust security tooling at Infopercept. He founded Gain Fisheries, a fish hatchery in Pakhanjur, Chhattisgarh, in 2020.
 
 This file mirrors the facts on https://mranv.github.io/ (the canonical page). Keep the two in step when either changes.
 
 ## Profile
 
-- Role: Security Engineer, Infopercept Consulting (Jul 2024 – present)
+- Role: Security Engineer, Infopercept (Jul 2024 – present)
 - Location: Mumbai, Maharashtra, India
-- Education: B.Tech, Cyber/Computer Forensics and Counterterrorism, Parul University
+- Education: B.Tech, Cyber/Computer Forensics and Counterterrorism, Parul University; ransomware techniques and cybersecurity management, Charles Sturt University
 - Focus: endpoint security, application allow-listing, XDR / SIEM (Wazuh, OpenSearch), application security and VAPT, DevSecOps, Kubernetes, Rust, Go, eBPF
 - Contact: iamanubhavgain@gmail.com
 
@@ -32,3 +32,4 @@ This file mirrors the facts on https://mranv.github.io/ (the canonical page). Ke
 - [X](https://x.com/AnubhavGain)
 - [ORCID](https://orcid.org/0009-0004-4131-5428)
 - [Field notes](https://mranv.pages.dev/)
+- [Blog posts](https://github.com/mranv/blogs)

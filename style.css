@@ -2,6 +2,16 @@
    Design tokens
    ========================================================================== */
 
+/* Self-hosted Oswald (Google Fonts v57, latin subset, variable 200-700).
+   Glyphs outside the subset (arrows, ✦) fall back to sans-serif, as before. */
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("assets/fonts/oswald-latin.woff2") format("woff2");
+}
+
 :root {
   --black: #0a0a0a;
   --ink: #111;
@@ -81,7 +91,7 @@ video {
 }
 
 .eyebrow {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--muted);
@@ -431,7 +441,7 @@ h2.eyebrow {
 }
 
 .stat__label {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
@@ -629,10 +639,19 @@ h2.eyebrow {
 
 .about__text {
   max-width: 1050px;
-  margin: 24px 0 40px;
+  margin: 24px 0;
   font-size: clamp(1.6rem, 3.6vw, 3rem);
   font-weight: 300;
   line-height: 1.22;
+}
+
+.about__more {
+  max-width: 70ch;
+  margin: 0 0 40px;
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--muted);
 }
 
 .about__text strong {
@@ -812,10 +831,10 @@ h2.eyebrow {
 .project__desc {
   margin: 6px 0 0;
   max-width: 46ch;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 300;
   line-height: 1.4;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .project__year {
@@ -829,6 +848,14 @@ h2.eyebrow {
 
 .project__title a:hover {
   opacity: 0.7;
+}
+
+/* Card art (~400 KB) sits below the fold and CSS backgrounds can't use
+   loading="lazy", so it is held back until script.js marks the section as
+   near the viewport. Gated on .js (set inline in <head>) so the art still
+   loads when scripts don't run. */
+.js .work:not(.is-near) .project__art {
+  background-image: none;
 }
 
 /* ---- Artwork ----
@@ -959,8 +986,7 @@ h2.eyebrow {
 .quote {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 32px;
+  gap: 24px;
   min-height: 300px;
   margin: 0;
   padding: 32px;
@@ -977,29 +1003,9 @@ h2.eyebrow {
   line-height: 1.45;
 }
 
-.quote__author {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.quote__avatar {
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--white);
-  color: var(--ink);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-}
-
 .quote__name,
 .quote__role {
-  display: block;
+  margin: 0;
 }
 
 .quote__name {

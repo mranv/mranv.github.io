@@ -51,8 +51,8 @@
         "url": "https://mranv.github.io/",
         "name": "Anubhav Gain — Security Engineer",
         "inLanguage": "en",
-        "dateCreated": "2023-12-23",
-        "dateModified": "2026-11-15",
+        "dateCreated": "2023-12-23T00:00:00+05:30",
+        "dateModified": "2026-11-15T00:00:00+05:30",
         "isPartOf": { "@id": "https://mranv.github.io/#website" },
         "about": { "@id": "https://mranv.github.io/#person" },
         "mainEntity": { "@id": "https://mranv.github.io/#person" },
@@ -73,16 +73,17 @@
         "name": "Anubhav Gain",
         "givenName": "Anubhav",
         "familyName": "Gain",
-        "alternateName": "mranv",
+        "alternateName": ["mranv", "anubhavg-icpl"],
         "url": "https://mranv.github.io/",
         "image": { "@id": "https://mranv.github.io/#photo" },
         "mainEntityOfPage": { "@id": "https://mranv.github.io/#profile" },
-        "email": "mailto:iamanubhavgain@gmail.com",
+        "email": "iamanubhavgain@gmail.com",
         "jobTitle": "Security Engineer",
-        "description": "Security engineer in Mumbai, India, building endpoint control, XDR pipelines and Rust security tooling at Infopercept; owner of Gain Fisheries, a fish hatchery in Pakhanjur, Chhattisgarh.",
+        "description": "Security engineer in Mumbai, India, building endpoint control, XDR pipelines and Rust security tooling at Infopercept; founder of Gain Fisheries, a fish hatchery in Pakhanjur, Chhattisgarh.",
         "worksFor": {
           "@type": "Organization",
-          "name": "Infopercept Consulting",
+          "@id": "https://mranv.github.io/#infopercept",
+          "name": "Infopercept",
           "url": "https://www.infopercept.com/"
         },
         "homeLocation": {
@@ -95,7 +96,6 @@
             "addressCountry": "IN"
           }
         },
-        "nationality": { "@type": "Country", "name": "India" },
         "alumniOf": [
           { "@type": "CollegeOrUniversity", "name": "Parul University", "url": "https://paruluniversity.ac.in/" },
           { "@type": "CollegeOrUniversity", "name": "Charles Sturt University", "url": "https://www.csu.edu.au/" }
@@ -141,7 +141,7 @@
         "@id": "https://mranv.github.io/#gain-fisheries",
         "name": "Gain Fisheries",
         "description": "Sustainable fish hatchery in Pakhanjur, Chhattisgarh, India.",
-        "foundingDate": "2020-08",
+        "foundingDate": "2020",
         "founder": { "@id": "https://mranv.github.io/#person" },
         "location": {
           "@type": "Place",
@@ -158,6 +158,7 @@
         "@id": "https://mranv.github.io/#ebpf-file-monitor",
         "name": "eBPF File Monitor",
         "description": "Rust utility for kernel-level file telemetry: tracks changes to a specified file and prints a timestamp when it is modified.",
+        "url": "https://github.com/mranv/ebpf-file-monitor",
         "codeRepository": "https://github.com/mranv/ebpf-file-monitor",
         "programmingLanguage": "Rust",
         "author": { "@id": "https://mranv.github.io/#person" }
@@ -166,7 +167,8 @@
         "@type": "SoftwareSourceCode",
         "@id": "https://mranv.github.io/#krustron",
         "name": "Krustron",
-        "description": "Open-source Devtron alternative in Go: unified dashboard, GitOps CI/CD pipelines, multi-cluster Kubernetes management and integrated observability and security with fine-grained RBAC.",
+        "description": "Open-source Devtron alternative in Go: unified dashboard, GitOps CI/CD pipelines and multi-cluster Kubernetes management.",
+        "url": "https://github.com/anubhavg-icpl/krustron",
         "codeRepository": "https://github.com/anubhavg-icpl/krustron",
         "programmingLanguage": "Go",
         "author": { "@id": "https://mranv.github.io/#person" }
@@ -176,6 +178,7 @@
         "@id": "https://mranv.github.io/#agni",
         "name": "Agni",
         "description": "Go terminal UI for running Firecracker microVMs, an alternative to firectl.",
+        "url": "https://github.com/anubhavg-icpl/agni",
         "codeRepository": "https://github.com/anubhavg-icpl/agni",
         "programmingLanguage": "Go",
         "author": { "@id": "https://mranv.github.io/#person" }
@@ -193,11 +196,14 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <!-- Oswald is self-hosted (one variable woff2, @font-face in style.css) so
+       no third-party stylesheet blocks first paint. -->
+  <link rel="preload" href="assets/fonts/oswald-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
+  <!-- .js gates the lazy card art in style.css; without scripts the loader
+       overlay would never clear, so hide it. -->
+  <script>document.documentElement.className = "js";</script>
+  <noscript><style>.loader { display: none; }</style></noscript>
 </head>
 <body>
   <nav class="nav glass" aria-label="Main">
@@ -259,7 +265,7 @@
     </section>
 
     <section class="about" id="about">
-      <div class="marquee" aria-label="Endpoint Security, Rust, XDR / SIEM, AppSec. Anubhav Gain, Security Engineer, India, since 2022.">
+      <div class="marquee" role="img" aria-label="Endpoint Security, Rust, XDR / SIEM, AppSec. Anubhav Gain, Security Engineer, India, since 2022.">
         <div class="marquee__row" aria-hidden="true">
           <div class="marquee__track">
             <div class="marquee__group">
@@ -288,10 +294,22 @@
           <h2 class="eyebrow">(01) About</h2>
         </div>
         <p class="about__text">
-          I’m Anubhav Gain, a security engineer working out of Mumbai. I build
-          <strong>the controls that decide what an endpoint may run</strong>, detection
-          pipelines that turn alerts into answers and Rust tooling that survives
-          production, for lenders, insurers and SOC teams across India.
+          I’m Anubhav Gain (mranv), a security engineer at Infopercept in Mumbai,
+          India. I build <strong>the controls that decide what an endpoint may
+          run</strong>, detection pipelines that turn alerts into answers and Rust
+          tooling that survives production, for lenders, insurers and SOC teams
+          across India.
+        </p>
+        <p class="about__more">
+          Since July 2024 I have worked at Infopercept as a security software
+          engineer, building the Invinsense XDR deployment architecture and
+          Invinsense Unified Endpoint Control. I have also consulted on endpoint
+          security at Mahindra Finance and application security at SBI Life. I
+          hold a B.Tech in Cyber/Computer Forensics and Counterterrorism from
+          Parul University and studied ransomware techniques and cybersecurity
+          management at Charles Sturt University. I maintain open-source Rust and
+          Go tools, including eBPF File Monitor, Krustron and Agni, and I founded
+          Gain Fisheries, a fish hatchery in Pakhanjur, Chhattisgarh, in 2020.
         </p>
         <ul class="about__tags">
           <li class="tag">Endpoint Control</li>
@@ -324,7 +342,7 @@
               <div>
                 <h3 class="project__title">Invinsense UEC</h3>
                 <p class="project__cat">Endpoint control · Application allow-listing</p>
-                <p class="project__desc">Application allow-listing with policy review, approval and deployment workflows, plus endpoint telemetry across Windows, macOS and Linux.</p>
+                <p class="project__desc">The Invinsense 7.0 module that decides which applications an endpoint may run.</p>
               </div>
               <span class="project__year">2026</span>
             </div>
@@ -337,7 +355,7 @@
               <div>
                 <h3 class="project__title">Invinsense XDR</h3>
                 <p class="project__cat">Multi-tenant XDR · OpenSearch plugins</p>
-                <p class="project__desc">Single and multi-tenant deployment architecture, custom OpenSearch Dashboards plugins, Rust monitoring agents and Wazuh + Fluent Bit alert pipelines.</p>
+                <p class="project__desc">The Invinsense detection and response stack, deployed single-tenant or multi-tenant.</p>
               </div>
               <span class="project__year">2024</span>
             </div>
@@ -408,50 +426,47 @@
         <p class="eyebrow">(03) Engagements</p>
         <h2 class="testimonials__title">Where it runs</h2>
 
+        <!-- Self-written engagement cards (client and role as the header).
+             The quote/testimonials class names are historical; do not restyle
+             these as third-party quotes. -->
         <div class="quotes">
           <article class="quote glass">
+            <header class="quote__author">
+              <h3 class="quote__name">Mahindra Finance</h3>
+              <p class="quote__role">Endpoint security consultant · May 2026 – now</p>
+            </header>
             <p class="quote__text">
-              Building Invinsense 7.0 Unified Endpoint Control: application
+              As endpoint security consultant at Mahindra Finance since May 2026, I am
+              building Invinsense 7.0 Unified Endpoint Control: application
               allow-listing, policy review → approval → deployment workflows, and
               endpoint telemetry across Windows, macOS and Linux.
             </p>
-            <footer class="quote__author">
-              <span class="quote__avatar" aria-hidden="true">MF</span>
-              <span>
-                <span class="quote__name">Mahindra Finance</span>
-                <span class="quote__role">Endpoint security consultant · May 2026 – now</span>
-              </span>
-            </footer>
           </article>
 
           <article class="quote glass">
+            <header class="quote__author">
+              <h3 class="quote__name">Infopercept</h3>
+              <p class="quote__role">Security software engineer · Jul 2024 – now</p>
+            </header>
             <p class="quote__text">
-              Deployment architecture for Invinsense XDR / OXDR, single and
-              multi-tenant. Custom OpenSearch Dashboards plugins, Rust monitoring
-              agents, and Wazuh + Fluent Bit alert pipelines.
+              As security software engineer at Infopercept since July 2024, I build the
+              deployment architecture for Invinsense XDR / OXDR, single and
+              multi-tenant, plus custom OpenSearch Dashboards plugins, Rust
+              monitoring agents, and Wazuh + Fluent Bit alert pipelines.
             </p>
-            <footer class="quote__author">
-              <span class="quote__avatar" aria-hidden="true">IP</span>
-              <span>
-                <span class="quote__name">Infopercept</span>
-                <span class="quote__role">Security software engineer · Jul 2024 – now</span>
-              </span>
-            </footer>
           </article>
 
           <article class="quote glass">
+            <header class="quote__author">
+              <h3 class="quote__name">SBI Life</h3>
+              <p class="quote__role">Application security consultant · Mar – May 2026</p>
+            </header>
             <p class="quote__text">
-              Application security assessments and VAPT, design reviews against
+              As application security consultant at SBI Life from March to May 2026, I
+              ran application security assessments and VAPT, design reviews against
               financial-sector and data-protection standards, and remediation
               guidance for the development teams.
             </p>
-            <footer class="quote__author">
-              <span class="quote__avatar" aria-hidden="true">SL</span>
-              <span>
-                <span class="quote__name">SBI Life</span>
-                <span class="quote__role">Application security consultant · Mar – May 2026</span>
-              </span>
-            </footer>
           </article>
         </div>
       </div>
@@ -476,9 +491,11 @@
           <ul class="footer__list">
             <li><a href="https://www.linkedin.com/in/anubhavgain" rel="me">LinkedIn</a></li>
             <li><a href="https://github.com/mranv" rel="me">GitHub</a></li>
+            <li><a href="https://github.com/anubhavg-icpl" rel="me">GitHub (work)</a></li>
             <li><a href="https://x.com/AnubhavGain" rel="me">X</a></li>
             <li><a href="https://orcid.org/0009-0004-4131-5428" rel="me">ORCID</a></li>
             <li><a href="https://mranv.pages.dev/" rel="me">Field notes</a></li>
+            <li><a href="https://github.com/mranv/blogs">Blog posts</a></li>
           </ul>
         </div>
         <div>
