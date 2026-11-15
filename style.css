@@ -654,6 +654,13 @@ h2.eyebrow {
   color: var(--muted);
 }
 
+/* Links are colour-inherited site-wide; inside running text they need an
+   underline to be recognisable as links. */
+.about__more a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .about__text strong {
   font-weight: 700;
 }
