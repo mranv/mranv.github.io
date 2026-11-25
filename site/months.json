@@ -1,0 +1,323 @@
+{
+ "from": "2026-01-01",
+ "to": "2026-11-25",
+ "fetchedAt": "2026-11-25T22:30:45.156Z",
+ "scope": "GitHub-attributed public commit contributions per repository and month",
+ "months": [
+  {
+   "month": "2026-01",
+   "top": [
+    {
+     "repo": "agni",
+     "owner": "anubhavg-icpl",
+     "commits": 78
+    },
+    {
+     "repo": "unattendedWin",
+     "owner": "mranv",
+     "commits": 54
+    },
+    {
+     "repo": "yara-edr",
+     "owner": "anubhavg-icpl",
+     "commits": 38
+    },
+    {
+     "repo": "arduino-projects-collection",
+     "owner": "mranv",
+     "commits": 29
+    },
+    {
+     "repo": "authz-ceder",
+     "owner": "anubhavg-icpl",
+     "commits": 24
+    }
+   ]
+  },
+  {
+   "month": "2026-02",
+   "top": [
+    {
+     "repo": "unattendedWin",
+     "owner": "mranv",
+     "commits": 48
+    },
+    {
+     "repo": "arduino-projects-collection",
+     "owner": "mranv",
+     "commits": 28
+    },
+    {
+     "repo": "dmctl",
+     "owner": "anubhavg-icpl",
+     "commits": 14
+    },
+    {
+     "repo": "smtp-relay",
+     "owner": "anubhavg-icpl",
+     "commits": 11
+    },
+    {
+     "repo": "opensearch",
+     "owner": "anubhavg-icpl",
+     "commits": 5
+    }
+   ]
+  },
+  {
+   "month": "2026-03",
+   "top": [
+    {
+     "repo": "unattendedWin",
+     "owner": "mranv",
+     "commits": 54
+    },
+    {
+     "repo": "arduino-projects-collection",
+     "owner": "mranv",
+     "commits": 28
+    },
+    {
+     "repo": "jarbasedratelimiter",
+     "owner": "anubhavg-icpl",
+     "commits": 21
+    },
+    {
+     "repo": "BurpSuiteDetection",
+     "owner": "anubhavg-icpl",
+     "commits": 9
+    },
+    {
+     "repo": "anubhav-ttols",
+     "owner": "anubhavg-icpl",
+     "commits": 8
+    }
+   ]
+  },
+  {
+   "month": "2026-04",
+   "top": [
+    {
+     "repo": "unattendedWin",
+     "owner": "mranv",
+     "commits": 52
+    },
+    {
+     "repo": "arduino-projects-collection",
+     "owner": "mranv",
+     "commits": 29
+    },
+    {
+     "repo": "leviathan",
+     "owner": "anubhavg-icpl",
+     "commits": 21
+    },
+    {
+     "repo": "OwaspApiSecurityDemo",
+     "owner": "anubhavg-icpl",
+     "commits": 16
+    },
+    {
+     "repo": "aishai",
+     "owner": "anubhavg-icpl",
+     "commits": 15
+    }
+   ]
+  },
+  {
+   "month": "2026-05",
+   "top": [
+    {
+     "repo": "blogs",
+     "owner": "mranv",
+     "commits": 155
+    },
+    {
+     "repo": "vibe",
+     "owner": "anubhavg-icpl",
+     "commits": 71
+    },
+    {
+     "repo": "warden-action",
+     "owner": "techanvconsulting",
+     "commits": 54
+    },
+    {
+     "repo": "unattendedWin",
+     "owner": "mranv",
+     "commits": 53
+    },
+    {
+     "repo": "warden",
+     "owner": "techanvconsulting",
+     "commits": 34
+    }
+   ]
+  },
+  {
+   "month": "2026-06",
+   "top": [
+    {
+     "repo": "warden",
+     "owner": "sussec",
+     "commits": 148
+    },
+    {
+     "repo": "unattendedWin",
+     "owner": "mranv",
+     "commits": 52
+    },
+    {
+     "repo": "arduino-projects-collection",
+     "owner": "mranv",
+     "commits": 30
+    },
+    {
+     "repo": "native-windows-red",
+     "owner": "sussec",
+     "commits": 5
+    },
+    {
+     "repo": "vibe",
+     "owner": "anubhavg-icpl",
+     "commits": 4
+    }
+   ]
+  },
+  {
+   "month": "2026-07",
+   "top": [
+    {
+     "repo": "unattendedWin",
+     "owner": "mranv",
+     "commits": 54
+    },
+    {
+     "repo": "valhalla",
+     "owner": "anubhavg-icpl",
+     "commits": 52
+    },
+    {
+     "repo": "warden",
+     "owner": "sussec",
+     "commits": 39
+    },
+    {
+     "repo": "talon",
+     "owner": "anubhavg-icpl",
+     "commits": 32
+    },
+    {
+     "repo": "arduino-projects-collection",
+     "owner": "mranv",
+     "commits": 29
+    }
+   ]
+  },
+  {
+   "month": "2026-08",
+   "top": [
+    {
+     "repo": "talon",
+     "owner": "anubhavg-icpl",
+     "commits": 56
+    },
+    {
+     "repo": "unattendedWin",
+     "owner": "mranv",
+     "commits": 53
+    },
+    {
+     "repo": "nestlo",
+     "owner": "anubhavg-icpl",
+     "commits": 28
+    },
+    {
+     "repo": "arduino-projects-collection",
+     "owner": "mranv",
+     "commits": 10
+    },
+    {
+     "repo": "slm-l",
+     "owner": "anubhavg-icpl",
+     "commits": 8
+    }
+   ]
+  },
+  {
+   "month": "2026-09",
+   "top": [
+    {
+     "repo": "unattendedWin",
+     "owner": "mranv",
+     "commits": 52
+    },
+    {
+     "repo": "nestlo",
+     "owner": "anubhavg-icpl",
+     "commits": 24
+    },
+    {
+     "repo": "mranv.github.io",
+     "owner": "mranv",
+     "commits": 2
+    }
+   ]
+  },
+  {
+   "month": "2026-10",
+   "top": [
+    {
+     "repo": "nestlo",
+     "owner": "anubhavg-icpl",
+     "commits": 189
+    },
+    {
+     "repo": "darling",
+     "owner": "anubhavg-icpl",
+     "commits": 80
+    },
+    {
+     "repo": "unattendedWin",
+     "owner": "mranv",
+     "commits": 54
+    },
+    {
+     "repo": "agni",
+     "owner": "anubhavg-icpl",
+     "commits": 36
+    },
+    {
+     "repo": "andy",
+     "owner": "anubhavg-icpl",
+     "commits": 5
+    }
+   ]
+  },
+  {
+   "month": "2026-11",
+   "top": [
+    {
+     "repo": "unattendedWin",
+     "owner": "mranv",
+     "commits": 43
+    },
+    {
+     "repo": "blogs",
+     "owner": "mranv",
+     "commits": 38
+    },
+    {
+     "repo": "mranv.github.io",
+     "owner": "mranv",
+     "commits": 3
+    },
+    {
+     "repo": "mranv",
+     "owner": "mranv",
+     "commits": 1
+    }
+   ]
+  }
+ ]
+}

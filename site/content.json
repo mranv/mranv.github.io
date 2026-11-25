@@ -1,0 +1,1164 @@
+{
+ "owner": "mranv",
+ "fetchedAt": "2026-11-25T22:30:45.156Z",
+ "about": {
+  "repo": "mranv",
+  "lines": [
+   "# Anubhav Gain",
+   "",
+   "Security software engineer at Infopercept. I build endpoint control, XDR pipelines and Rust agents: software whose job is to say no.",
+   "",
+   "Mumbai, India · saying no as a service",
+   "",
+   "[GitHub](https://github.com/mranv)",
+   "[GitHub (work)](https://github.com/anubhavg-icpl)",
+   "[LinkedIn](https://www.linkedin.com/in/anubhavgain)",
+   "[X](https://x.com/AnubhavGain)",
+   "[Blog](https://mranv.pages.dev/)",
+   "[Credly](https://www.credly.com/users/anubhavgain)",
+   "[ORCID](https://orcid.org/0009-0004-4131-5428)"
+  ]
+ },
+ "projects": [
+  {
+   "repo": "leviathan",
+   "url": "https://github.com/anubhavg-icpl/leviathan",
+   "description": "A Windows kernel-mode EDR/XDR framework written in Rust on windows-drivers-rs.",
+   "tag": "Kernel EDR · Rust",
+   "stars": 2,
+   "language": "Rust",
+   "pushed": "2026-04-30",
+   "forks": 2,
+   "watchers": 0,
+   "issues": 0,
+   "license": null,
+   "created": "2025-11-05",
+   "branch": "master",
+   "commits": 29,
+   "files": 51,
+   "counts": {},
+   "github": "https://github.com/anubhavg-icpl/leviathan",
+   "stack": [
+    "Rust",
+    "Windows",
+    "KMDF",
+    "ETW"
+   ],
+   "images": [
+    {
+     "file": "shots/leviathan-banner.webp",
+     "source": "shots/leviathan-banner.webp",
+     "alt": "Leviathan screenshot 1",
+     "xray": false
+    },
+    {
+     "file": "shots/leviathan-architecture.webp",
+     "source": "shots/leviathan-architecture.webp",
+     "alt": "Leviathan screenshot 2",
+     "xray": false
+    }
+   ],
+   "lines": [
+    "# Leviathan",
+    "",
+    "\u0001IMG0\u0001",
+    "",
+    "### A Windows kernel-mode EDR/XDR framework written in Rust on windows-drivers-rs.",
+    "",
+    "Leviathan is a Windows kernel-mode driver framework in Rust. It registers",
+    "process, thread, image, registry and object callbacks, runs a rule and",
+    "behaviour engine mapped to MITRE ATT&CK, scans pool tags for memory",
+    "forensics, detects hooks, supports ELAM, and streams telemetry to user mode",
+    "over a lock-free ring buffer and ETW.",
+    "",
+    "Built with Rust · Windows · KMDF · ETW",
+    "",
+    "\u0001IMG1\u0001",
+    "",
+    "[Visit](https://github.com/anubhavg-icpl/leviathan)"
+   ]
+  },
+  {
+   "repo": "atomic-prevention",
+   "url": "https://github.com/anubhavg-icpl/atomic-prevention",
+   "description": "A prevention-focused living-off-the-land testing framework mapped to MITRE ATT&CK.",
+   "tag": "Prevention testing · Python",
+   "stars": 0,
+   "language": "Python",
+   "pushed": "2026-10-28",
+   "forks": 0,
+   "watchers": 0,
+   "issues": 0,
+   "license": "Apache-2.0",
+   "created": "2026-10-19",
+   "branch": "main",
+   "commits": 23,
+   "files": 128,
+   "counts": {},
+   "github": "https://github.com/anubhavg-icpl/atomic-prevention",
+   "stack": [
+    "Python",
+    "PowerShell",
+    "Docker",
+    "MITRE ATT&CK"
+   ],
+   "images": [
+    {
+     "file": "shots/atomic-prevention-dashboard.webp",
+     "source": "shots/atomic-prevention-dashboard.webp",
+     "alt": "Atomic Prevention screenshot 1",
+     "xray": false
+    },
+    {
+     "file": "shots/atomic-prevention-techniques.webp",
+     "source": "shots/atomic-prevention-techniques.webp",
+     "alt": "Atomic Prevention screenshot 2",
+     "xray": false
+    },
+    {
+     "file": "shots/atomic-prevention-playbook.webp",
+     "source": "shots/atomic-prevention-playbook.webp",
+     "alt": "Atomic Prevention screenshot 3",
+     "xray": false
+    }
+   ],
+   "lines": [
+    "# Atomic Prevention",
+    "",
+    "\u0001IMG0\u0001",
+    "",
+    "### A prevention-focused living-off-the-land testing framework mapped to MITRE ATT&CK.",
+    "",
+    "Atomic Prevention flips Atomic Red Team: instead of testing detection, it",
+    "tests whether preventative controls block living-off-the-land techniques. It",
+    "ingests LOLBAS, LOLDrivers, LOLRMM and Atomic Red Team, maps them to ATT&CK",
+    "techniques and adversary groups, generates a playbook per group, runs it",
+    "with a PowerShell agent and reports what was blocked, detected or allowed.",
+    "",
+    "Built with Python · PowerShell · Docker · MITRE ATT&CK",
+    "",
+    "\u0001IMG1\u0001",
+    "",
+    "\u0001IMG2\u0001",
+    "",
+    "[Visit](https://github.com/anubhavg-icpl/atomic-prevention)"
+   ]
+  },
+  {
+   "repo": "agni",
+   "url": "https://github.com/anubhavg-icpl/agni",
+   "description": "A CLI and web UI for running Firecracker microVMs, an alternative to firectl.",
+   "tag": "MicroVMs · Go",
+   "stars": 0,
+   "language": "Go",
+   "pushed": "2026-10-20",
+   "forks": 0,
+   "watchers": 0,
+   "issues": 0,
+   "license": "Apache-2.0",
+   "created": "2026-01-11",
+   "branch": "main",
+   "commits": 258,
+   "files": 161,
+   "counts": {},
+   "github": "https://github.com/anubhavg-icpl/agni",
+   "stack": [
+    "Go",
+    "Firecracker",
+    "KVM",
+    "Linux"
+   ],
+   "images": [
+    {
+     "file": "shots/agni-dashboard.webp",
+     "source": "shots/agni-dashboard.webp",
+     "alt": "Agni screenshot 1",
+     "xray": false
+    },
+    {
+     "file": "shots/agni-console.webp",
+     "source": "shots/agni-console.webp",
+     "alt": "Agni screenshot 2",
+     "xray": false
+    },
+    {
+     "file": "shots/agni-vms.webp",
+     "source": "shots/agni-vms.webp",
+     "alt": "Agni screenshot 3",
+     "xray": false
+    },
+    {
+     "file": "shots/agni-templates.webp",
+     "source": "shots/agni-templates.webp",
+     "alt": "Agni screenshot 4",
+     "xray": false
+    }
+   ],
+   "lines": [
+    "# Agni",
+    "",
+    "\u0001IMG0\u0001",
+    "",
+    "### A CLI and web UI for running Firecracker microVMs, an alternative to firectl.",
+    "",
+    "Agni manages Firecracker microVMs from a command line and a web interface:",
+    "create, start, stop and delete VMs, open a serial console, save",
+    "configuration profiles and watch status and logs. Agni is Sanskrit for fire.",
+    "",
+    "Built with Go · Firecracker · KVM · Linux",
+    "",
+    "\u0001IMG1\u0001",
+    "",
+    "\u0001IMG2\u0001",
+    "",
+    "\u0001IMG3\u0001",
+    "",
+    "[Visit](https://github.com/anubhavg-icpl/agni)"
+   ]
+  },
+  {
+   "repo": "krustron",
+   "url": "https://github.com/anubhavg-icpl/krustron",
+   "description": "An open-source Devtron alternative: one dashboard for clusters, GitOps CI/CD and observability.",
+   "tag": "Kubernetes · Go",
+   "stars": 1,
+   "language": "Go",
+   "pushed": "2026-07-13",
+   "forks": 0,
+   "watchers": 0,
+   "issues": 0,
+   "license": "Apache-2.0",
+   "created": "2025-12-07",
+   "branch": "master",
+   "commits": 85,
+   "files": 117,
+   "counts": {},
+   "github": "https://github.com/anubhavg-icpl/krustron",
+   "stack": [
+    "Go",
+    "Kubernetes",
+    "ArgoCD",
+    "Docker"
+   ],
+   "images": [
+    {
+     "file": "shots/krustron.webp",
+     "still": "shots/krustron.png",
+     "source": "shots/krustron.webp",
+     "alt": "Krustron emblem, pixel art",
+     "xray": false
+    }
+   ],
+   "lines": [
+    "# Krustron",
+    "",
+    "\u0001IMG0\u0001",
+    "",
+    "### An open-source Devtron alternative: one dashboard for clusters, GitOps CI/CD and observability.",
+    "",
+    "Krustron is a Kubernetes-native platform that brings multi-cluster",
+    "management, GitOps pipelines with ArgoCD, container scanning and policy",
+    "enforcement, observability and fine-grained RBAC into a single dashboard.",
+    "",
+    "Built with Go · Kubernetes · ArgoCD · Docker",
+    "",
+    "[Visit](https://github.com/anubhavg-icpl/krustron)"
+   ]
+  },
+  {
+   "repo": "ebpf-file-monitor",
+   "url": "https://github.com/mranv/ebpf-file-monitor",
+   "description": "File monitoring for Linux in Rust, with inotify and eBPF and timestamped audit logs.",
+   "tag": "File telemetry · Rust",
+   "stars": 14,
+   "language": "Rust",
+   "pushed": "2025-07-31",
+   "forks": 2,
+   "watchers": 1,
+   "issues": 1,
+   "license": "MIT",
+   "created": "2024-01-11",
+   "branch": "master",
+   "commits": 42,
+   "files": 17,
+   "counts": {},
+   "github": "https://github.com/mranv/ebpf-file-monitor",
+   "stack": [
+    "Rust",
+    "eBPF",
+    "Linux"
+   ],
+   "images": [
+    {
+     "file": "shots/ebpf-file-monitor.webp",
+     "source": "shots/ebpf-file-monitor.webp",
+     "alt": "eBPF File Monitor screenshot 1",
+     "xray": false
+    }
+   ],
+   "lines": [
+    "# eBPF File Monitor",
+    "",
+    "\u0001IMG0\u0001",
+    "",
+    "### File monitoring for Linux in Rust, with inotify and eBPF and timestamped audit logs.",
+    "",
+    "ebpf-file-monitor tracks access, open, close, modify, create, delete, move",
+    "and attribute events on a file, records the process, user and size change",
+    "behind each one with millisecond timestamps, and writes text or JSON.",
+    "",
+    "Built with Rust · eBPF · Linux",
+    "",
+    "[Visit](https://github.com/mranv/ebpf-file-monitor)"
+   ]
+  },
+  {
+   "repo": "convoy",
+   "url": "https://github.com/anubhavg-icpl/convoy",
+   "description": "Your own autonomous system on one VPS, as a Docker Compose stack.",
+   "tag": "Self-hosted AS · Shell",
+   "stars": 0,
+   "language": "Shell",
+   "pushed": "2026-11-14",
+   "forks": 0,
+   "watchers": 0,
+   "issues": 0,
+   "license": "MIT",
+   "created": "2026-11-14",
+   "branch": "main",
+   "commits": 22,
+   "files": 29,
+   "counts": {},
+   "github": "https://github.com/anubhavg-icpl/convoy",
+   "stack": [
+    "Shell",
+    "Docker",
+    "BGP",
+    "DNSSEC"
+   ],
+   "images": [
+    {
+     "file": "shots/convoy.webp",
+     "still": "shots/convoy.png",
+     "source": "shots/convoy.webp",
+     "alt": "Convoy emblem, pixel art",
+     "xray": false
+    }
+   ],
+   "lines": [
+    "# Convoy",
+    "",
+    "\u0001IMG0\u0001",
+    "",
+    "### Your own autonomous system on one VPS, as a Docker Compose stack.",
+    "",
+    "Convoy runs BGP with RPKI route origin validation (BIRD 2, Routinator), an",
+    "authoritative DNSSEC zone (NSD), a public NTP server with NTS (chrony), mail",
+    "with DKIM and DANE (Postfix, Dovecot) and HTTP/3 (nginx) on one host. An",
+    "offline lab runs 32 end-to-end checks before anything is deployed.",
+    "",
+    "Built with Shell · Docker · BGP · DNSSEC",
+    "",
+    "[Visit](https://github.com/anubhavg-icpl/convoy)"
+   ]
+  },
+  {
+   "repo": "vibe",
+   "url": "https://github.com/anubhavg-icpl/vibe",
+   "description": "A library of AI chat modes for software engineering, architecture and security analysis.",
+   "tag": "Prompts · Python",
+   "stars": 15,
+   "language": "Python",
+   "pushed": "2026-06-15",
+   "forks": 5,
+   "watchers": 0,
+   "issues": 2,
+   "license": null,
+   "created": "2025-11-05",
+   "branch": "master",
+   "commits": 158,
+   "files": 17515,
+   "counts": {},
+   "github": "https://github.com/anubhavg-icpl/vibe",
+   "stack": [
+    "Python"
+   ],
+   "images": [],
+   "lines": [
+    "# vibe",
+    "",
+    "",
+    "### A library of AI chat modes for software engineering, architecture and security analysis.",
+    "",
+    "vibe is an organised collection of system prompts and chat modes for",
+    "engineering workflows.",
+    "",
+    "Built with Python",
+    "",
+    "[Visit](https://github.com/anubhavg-icpl/vibe)"
+   ]
+  },
+  {
+   "repo": "adpentest",
+   "url": "https://github.com/mranv/adPentest",
+   "description": "Documentation for Windows Active Directory penetration testing.",
+   "tag": "Docs · Active Directory",
+   "stars": 21,
+   "language": "Markdown",
+   "pushed": "2024-06-14",
+   "forks": 4,
+   "watchers": 0,
+   "issues": 0,
+   "license": "Apache-2.0",
+   "created": "2024-05-29",
+   "branch": "main",
+   "commits": 2,
+   "files": 4,
+   "counts": {},
+   "github": "https://github.com/mranv/adPentest",
+   "stack": [
+    "Markdown",
+    "Active Directory",
+    "Windows"
+   ],
+   "images": [],
+   "lines": [
+    "# adPentest",
+    "",
+    "",
+    "### Documentation for Windows Active Directory penetration testing.",
+    "",
+    "Notes and walkthroughs for Active Directory penetration testing.",
+    "",
+    "Built with Markdown · Active Directory · Windows",
+    "",
+    "[Visit](https://github.com/mranv/adPentest)"
+   ]
+  },
+  {
+   "repo": "opensearch-rust-sdk",
+   "url": "https://github.com/Infopercept/opensearch-rust-sdk",
+   "description": "An OpenSearch Extensions SDK for Rust, built at Infopercept.",
+   "tag": "SDK · Rust",
+   "stars": 1,
+   "language": "Rust",
+   "pushed": "2025-07-12",
+   "forks": 0,
+   "watchers": 0,
+   "issues": 0,
+   "license": "Apache-2.0",
+   "created": "2025-06-16",
+   "branch": "master",
+   "commits": 47,
+   "files": 57,
+   "counts": {},
+   "github": "https://github.com/Infopercept/opensearch-rust-sdk",
+   "stack": [
+    "Rust",
+    "OpenSearch"
+   ],
+   "images": [],
+   "lines": [
+    "# opensearch-rust-sdk",
+    "",
+    "",
+    "### An OpenSearch Extensions SDK for Rust, built at Infopercept.",
+    "",
+    "An async Rust SDK for the OpenSearch Extensions API.",
+    "",
+    "Built with Rust · OpenSearch",
+    "",
+    "[Visit](https://github.com/Infopercept/opensearch-rust-sdk)"
+   ]
+  },
+  {
+   "repo": "osdls",
+   "url": "https://github.com/mranv/osdls",
+   "description": "Wazuh, Logstash, OpenSearch and OpenSearch Dashboards as one stack.",
+   "tag": "SIEM · Shell",
+   "stars": 6,
+   "language": "Shell",
+   "pushed": "2024-09-09",
+   "forks": 3,
+   "watchers": 1,
+   "issues": 0,
+   "license": null,
+   "created": "2024-09-05",
+   "branch": "invinsense",
+   "commits": 47,
+   "files": 404,
+   "counts": {},
+   "github": "https://github.com/mranv/osdls",
+   "stack": [
+    "Shell",
+    "Wazuh",
+    "OpenSearch"
+   ],
+   "images": [],
+   "lines": [
+    "# osdls",
+    "",
+    "",
+    "### Wazuh, Logstash, OpenSearch and OpenSearch Dashboards as one stack.",
+    "",
+    "Scripts that stand up Wazuh with Logstash, OpenSearch and OpenSearch",
+    "Dashboards.",
+    "",
+    "Built with Shell · Wazuh · OpenSearch",
+    "",
+    "[Visit](https://github.com/mranv/osdls)"
+   ]
+  },
+  {
+   "repo": "appcontrolbusiness",
+   "url": "https://github.com/anubhavg-icpl/appControlBusiness",
+   "description": "Working notes on App Control for Business (WDAC).",
+   "tag": "WDAC · Notes",
+   "stars": 2,
+   "language": "JavaScript",
+   "pushed": "2026-08-01",
+   "forks": 1,
+   "watchers": 0,
+   "issues": 0,
+   "license": null,
+   "created": "2026-05-01",
+   "branch": "master",
+   "commits": 32,
+   "files": 157,
+   "counts": {},
+   "github": "https://github.com/anubhavg-icpl/appControlBusiness",
+   "stack": [
+    "WDAC",
+    "Windows"
+   ],
+   "images": [],
+   "lines": [
+    "# appControlBusiness",
+    "",
+    "",
+    "### Working notes on App Control for Business (WDAC).",
+    "",
+    "Policies, references and notes on Microsoft App Control for Business.",
+    "",
+    "Built with WDAC · Windows",
+    "",
+    "[Visit](https://github.com/anubhavg-icpl/appControlBusiness)"
+   ]
+  },
+  {
+   "repo": "tls.rs",
+   "url": "https://github.com/mranv/tls.rs",
+   "description": "A TCP client and server in Rust with TLS and real-time data transmission.",
+   "tag": "Networking · Rust",
+   "stars": 4,
+   "language": "Rust",
+   "pushed": "2024-07-22",
+   "forks": 0,
+   "watchers": 1,
+   "issues": 1,
+   "license": null,
+   "created": "2024-06-09",
+   "branch": "main",
+   "commits": 8,
+   "files": 13,
+   "counts": {},
+   "github": "https://github.com/mranv/tls.rs",
+   "stack": [
+    "Rust",
+    "TLS"
+   ],
+   "images": [],
+   "lines": [
+    "# tls.rs",
+    "",
+    "",
+    "### A TCP client and server in Rust with TLS and real-time data transmission.",
+    "",
+    "A small Rust TCP client-server pair that streams data over TLS.",
+    "",
+    "Built with Rust · TLS",
+    "",
+    "[Visit](https://github.com/mranv/tls.rs)"
+   ]
+  },
+  {
+   "repo": "linux.micrognu",
+   "url": "https://github.com/mranv/linux.micrognu",
+   "description": "A small GUI Linux distribution for QEMU, built from the kernel, BusyBox and Nano-X.",
+   "tag": "Distro · Linux",
+   "stars": 8,
+   "language": "Linux",
+   "pushed": "2024-06-14",
+   "forks": 1,
+   "watchers": 0,
+   "issues": 0,
+   "license": null,
+   "created": "2024-06-14",
+   "branch": "main",
+   "commits": 1,
+   "files": 1,
+   "counts": {},
+   "github": "https://github.com/mranv/linux.micrognu",
+   "stack": [
+    "Linux",
+    "BusyBox",
+    "QEMU"
+   ],
+   "images": [],
+   "lines": [
+    "# linux.micrognu",
+    "",
+    "",
+    "### A small GUI Linux distribution for QEMU, built from the kernel, BusyBox and Nano-X.",
+    "",
+    "A minimal Linux distribution with a GUI, assembled from the Linux kernel,",
+    "BusyBox and Microwindows/Nano-X to run on QEMU.",
+    "",
+    "Built with Linux · BusyBox · QEMU",
+    "",
+    "[Visit](https://github.com/mranv/linux.micrognu)"
+   ]
+  }
+ ],
+ "palettes": [
+  {
+   "name": "Blackmoney",
+   "description": "Warm paper on near-black",
+   "light": false,
+   "bg": "#0b0b0a",
+   "fg": "#ebe6db",
+   "accent": "#e7c58a",
+   "kinds": {
+    "keyword": "#7fd1a0",
+    "string": "#e6c37a",
+    "number": "#f0885b",
+    "function": "#8fd0ee",
+    "type": "#c9a0e8",
+    "comment": "#7a766a",
+    "text": "#ebe6db",
+    "ident": "#cbe0c9",
+    "member": "#8fd0ee",
+    "punct": "#86837d"
+   },
+   "cursorline": "#11110f",
+   "ansi": [
+    "#0b0b0a",
+    "#7fd1a0",
+    "#e6c37a",
+    "#f0885b",
+    "#8fd0ee",
+    "#c9a0e8",
+    "#e7c58a",
+    "#ebe6db",
+    "#7a766a",
+    "#7fd1a0",
+    "#e6c37a",
+    "#f0885b",
+    "#8fd0ee",
+    "#c9a0e8",
+    "#e7c58a",
+    "#ebe6db"
+   ],
+   "color1": "#7fd1a0"
+  },
+  {
+   "name": "Paper",
+   "description": "Light, ink on cream",
+   "light": true,
+   "bg": "#f6f2e9",
+   "fg": "#1d1c1a",
+   "accent": "#b4532a",
+   "kinds": {
+    "keyword": "#2f6f4f",
+    "string": "#8a5a1a",
+    "number": "#b4532a",
+    "function": "#2c5d8a",
+    "type": "#5a4a8a",
+    "comment": "#8c887c",
+    "text": "#1d1c1a",
+    "ident": "#22352a",
+    "member": "#2c5d8a",
+    "punct": "#7f7c77"
+   },
+   "cursorline": "#ece8e0",
+   "ansi": [
+    "#f6f2e9",
+    "#2f6f4f",
+    "#8a5a1a",
+    "#b4532a",
+    "#2c5d8a",
+    "#5a4a8a",
+    "#b4532a",
+    "#1d1c1a",
+    "#8c887c",
+    "#2f6f4f",
+    "#8a5a1a",
+    "#b4532a",
+    "#2c5d8a",
+    "#5a4a8a",
+    "#b4532a",
+    "#1d1c1a"
+   ],
+   "color1": "#2f6f4f"
+  },
+  {
+   "name": "Sora",
+   "description": "Cool steel and teal",
+   "light": false,
+   "bg": "#0b1015",
+   "fg": "#d9e4ee",
+   "accent": "#4cc9f0",
+   "kinds": {
+    "keyword": "#4cc9f0",
+    "string": "#a9d6e5",
+    "number": "#ffa94d",
+    "function": "#9fb4ff",
+    "type": "#6ee7b7",
+    "comment": "#56687a",
+    "text": "#d9e4ee",
+    "ident": "#afdcef",
+    "member": "#9fb4ff",
+    "punct": "#7c858c"
+   },
+   "cursorline": "#111820",
+   "ansi": [
+    "#0b1015",
+    "#4cc9f0",
+    "#a9d6e5",
+    "#ffa94d",
+    "#9fb4ff",
+    "#6ee7b7",
+    "#4cc9f0",
+    "#d9e4ee",
+    "#56687a",
+    "#4cc9f0",
+    "#a9d6e5",
+    "#ffa94d",
+    "#9fb4ff",
+    "#6ee7b7",
+    "#4cc9f0",
+    "#d9e4ee"
+   ],
+   "color1": "#4cc9f0"
+  },
+  {
+   "name": "Circuit",
+   "description": "Board green, phosphor on black",
+   "light": false,
+   "bg": "#07110c",
+   "fg": "#d3f0dd",
+   "accent": "#3ddc84",
+   "kinds": {
+    "keyword": "#3ddc84",
+    "string": "#ffd166",
+    "number": "#ff8f70",
+    "function": "#59c3f0",
+    "type": "#c792ea",
+    "comment": "#4d6b5a",
+    "text": "#d3f0dd",
+    "ident": "#a6eac2",
+    "member": "#59c3f0",
+    "punct": "#778c7f"
+   },
+   "cursorline": "#0b1a12",
+   "ansi": [
+    "#07110c",
+    "#3ddc84",
+    "#ffd166",
+    "#ff8f70",
+    "#59c3f0",
+    "#c792ea",
+    "#3ddc84",
+    "#d3f0dd",
+    "#4d6b5a",
+    "#3ddc84",
+    "#ffd166",
+    "#ff8f70",
+    "#59c3f0",
+    "#c792ea",
+    "#3ddc84",
+    "#d3f0dd"
+   ],
+   "color1": "#3ddc84"
+  },
+  {
+   "name": "Amber",
+   "description": "Warm amber on ink",
+   "light": false,
+   "bg": "#0e0c08",
+   "fg": "#f1e6cc",
+   "accent": "#f7931a",
+   "kinds": {
+    "keyword": "#f7931a",
+    "string": "#e8d9a0",
+    "number": "#ff7a59",
+    "function": "#ffcf6b",
+    "type": "#9ad1d4",
+    "comment": "#7a6a4a",
+    "text": "#f1e6cc",
+    "ident": "#f3cd97",
+    "member": "#ffcf6b",
+    "punct": "#8b8474"
+   },
+   "cursorline": "#15120c",
+   "ansi": [
+    "#0e0c08",
+    "#f7931a",
+    "#e8d9a0",
+    "#ff7a59",
+    "#ffcf6b",
+    "#9ad1d4",
+    "#f7931a",
+    "#f1e6cc",
+    "#7a6a4a",
+    "#f7931a",
+    "#e8d9a0",
+    "#ff7a59",
+    "#ffcf6b",
+    "#9ad1d4",
+    "#f7931a",
+    "#f1e6cc"
+   ],
+   "color1": "#f7931a"
+  },
+  {
+   "name": "Indigo",
+   "description": "Violet on deep indigo",
+   "light": false,
+   "bg": "#0d0b14",
+   "fg": "#e2dcf2",
+   "accent": "#a97bff",
+   "kinds": {
+    "keyword": "#a97bff",
+    "string": "#c7b8f0",
+    "number": "#ff9ecb",
+    "function": "#8fb2ff",
+    "type": "#7ad9d0",
+    "comment": "#665f80",
+    "text": "#e2dcf2",
+    "ident": "#d1bff6",
+    "member": "#8fb2ff",
+    "punct": "#827e8e"
+   },
+   "cursorline": "#14111e",
+   "ansi": [
+    "#0d0b14",
+    "#a97bff",
+    "#c7b8f0",
+    "#ff9ecb",
+    "#8fb2ff",
+    "#7ad9d0",
+    "#a97bff",
+    "#e2dcf2",
+    "#665f80",
+    "#a97bff",
+    "#c7b8f0",
+    "#ff9ecb",
+    "#8fb2ff",
+    "#7ad9d0",
+    "#a97bff",
+    "#e2dcf2"
+   ],
+   "color1": "#a97bff"
+  },
+  {
+   "name": "Crimson",
+   "description": "Warm terracotta and charcoal",
+   "light": false,
+   "bg": "#140a0a",
+   "fg": "#f4e3d0",
+   "accent": "#ff8f1f",
+   "kinds": {
+    "keyword": "#ff8f1f",
+    "string": "#e8c39e",
+    "number": "#ffd27a",
+    "function": "#7fd1c8",
+    "type": "#e08a96",
+    "comment": "#7a5a52",
+    "text": "#f4e3d0",
+    "ident": "#f7ca9b",
+    "member": "#7fd1c8",
+    "punct": "#8f8177"
+   },
+   "cursorline": "#1e0f0f",
+   "ansi": [
+    "#140a0a",
+    "#ff8f1f",
+    "#e8c39e",
+    "#ffd27a",
+    "#7fd1c8",
+    "#e08a96",
+    "#ff8f1f",
+    "#f4e3d0",
+    "#7a5a52",
+    "#ff8f1f",
+    "#e8c39e",
+    "#ffd27a",
+    "#7fd1c8",
+    "#e08a96",
+    "#ff8f1f",
+    "#f4e3d0"
+   ],
+   "color1": "#ff8f1f"
+  },
+  {
+   "name": "Slate",
+   "description": "Neutral graphite",
+   "light": false,
+   "bg": "#111214",
+   "fg": "#d6d8dc",
+   "accent": "#9aa5b1",
+   "kinds": {
+    "keyword": "#9ab0c4",
+    "string": "#b9c4b0",
+    "number": "#d3a37a",
+    "function": "#c4b8d6",
+    "type": "#a3c4c0",
+    "comment": "#666b73",
+    "text": "#d6d8dc",
+    "ident": "#c4ccd5",
+    "member": "#c4b8d6",
+    "punct": "#7d7f82"
+   },
+   "cursorline": "#1a1b1e",
+   "ansi": [
+    "#111214",
+    "#9ab0c4",
+    "#b9c4b0",
+    "#d3a37a",
+    "#c4b8d6",
+    "#a3c4c0",
+    "#9aa5b1",
+    "#d6d8dc",
+    "#666b73",
+    "#9ab0c4",
+    "#b9c4b0",
+    "#d3a37a",
+    "#c4b8d6",
+    "#a3c4c0",
+    "#9aa5b1",
+    "#d6d8dc"
+   ],
+   "color1": "#9ab0c4"
+  }
+ ],
+ "themeStats": {},
+ "themeThumbs": {
+  "blackmoney": "assets/themes/blackmoney.svg",
+  "paper": "assets/themes/paper.svg",
+  "sora": "assets/themes/sora.svg",
+  "circuit": "assets/themes/circuit.svg",
+  "amber": "assets/themes/amber.svg",
+  "indigo": "assets/themes/indigo.svg",
+  "crimson": "assets/themes/crimson.svg",
+  "slate": "assets/themes/slate.svg"
+ },
+ "work": [
+  {
+   "when": "07/2024 – present",
+   "title": "Security Software Engineer",
+   "org": "Infopercept",
+   "desc": "Deployment architecture for Invinsense XDR / OXDR, single and multi-tenant. Custom OpenSearch Dashboards plugins, Rust monitoring agents, Wazuh and Fluent Bit alert pipelines.",
+   "url": "https://www.infopercept.com/"
+  },
+  {
+   "when": "05/2026 – present",
+   "title": "Endpoint Security Consultant",
+   "org": "Mahindra Finance",
+   "desc": "Invinsense 7.0 Unified Endpoint Control: application allow-listing, policy review to deployment workflows and endpoint telemetry across Windows, macOS and Linux."
+  },
+  {
+   "when": "03/2026 – 05/2026",
+   "title": "Application Security Consultant",
+   "org": "SBI Life",
+   "desc": "Application security assessments and VAPT, with design reviews against financial-sector and data-protection standards."
+  },
+  {
+   "when": "11/2023 – 07/2024",
+   "title": "DevSecOps Engineer",
+   "org": "Atcults",
+   "desc": "Security testing pipelines, infrastructure as code with Terraform, container and Kubernetes hardening."
+  },
+  {
+   "when": "11/2022 – 10/2023",
+   "title": "IT Security Specialist",
+   "org": "Parul University",
+   "where": "Vadodara",
+   "desc": "Palo Alto firewalls, Red Hat and Windows servers, AWS and endpoint configuration management."
+  },
+  {
+   "when": "2020 – present",
+   "title": "Founder",
+   "org": "Gain Fisheries",
+   "where": "Pakhanjur, Chhattisgarh",
+   "desc": "A fish hatchery in Pakhanjur, Chhattisgarh."
+  }
+ ],
+ "talks": [],
+ "writing": {
+  "feed": "https://mranv.pages.dev/rss.xml",
+  "archive": "https://mranv.pages.dev/archive/",
+  "site": "https://mranv.pages.dev/",
+  "count": 12,
+  "posts": [
+   {
+    "title": "Detecting Novel WDAC Bypass Exploitation (Browser & Electron)",
+    "url": "https://mranv.pages.dev/posts/detecting-novel-wdac-exploitation-browser-electron/",
+    "date": "2026-07-13",
+    "desc": "Part 10 of the WDAC detection-engineering series — detecting novel exploitation paths that bypass application control via browser memory corruption or signed Electron/Node shells, with a Sigma rule an"
+   },
+   {
+    "title": "Detecting Catalog-Hygiene and Signing-Trust Abuse",
+    "url": "https://mranv.pages.dev/posts/detecting-catalog-hygiene-and-signing-trust-abuse/",
+    "date": "2026-07-13",
+    "desc": "Part 9 of the WDAC detection-engineering series — detecting abuse of Windows signature catalogs and previous-version signed script hosts to launder unsigned code past application control, with a Sigma"
+   },
+   {
+    "title": "Detecting Signed-Utility and Deserialization Abuse (InstallUtil / AddInUtil / runscripthelper)",
+    "url": "https://mranv.pages.dev/posts/detecting-signed-utility-and-deserialization-abuse/",
+    "date": "2026-07-13",
+    "desc": "Part 8 of the WDAC detection-engineering series — detecting signed Microsoft installers, helpers, and deserialising utilities repurposed to execute attacker code, with a Sigma rule and tuning guidance"
+   },
+   {
+    "title": "Detecting WSL-Family Abuse (bash / lxrun / wsl / wslconfig / wslhost)",
+    "url": "https://mranv.pages.dev/posts/detecting-wsl-family-abuse/",
+    "date": "2026-07-13",
+    "desc": "Part 7 of the WDAC detection-engineering series — detecting Windows Subsystem for Linux binaries used to cross an application-control boundary, with a Sigma rule and WSL telemetry guidance."
+   },
+   {
+    "title": "Detecting UMCI Bypasses and PowerShell Constrained Language Mode Escapes",
+    "url": "https://mranv.pages.dev/posts/detecting-umci-powershell-clm-escapes/",
+    "date": "2026-07-13",
+    "desc": "Part 6 of the WDAC detection-engineering series — detecting User-Mode Code Integrity (UMCI) bypasses and escapes from PowerShell Constrained Language Mode, with a Sigma rule and PowerShell event-log c"
+   },
+   {
+    "title": "Detecting COM, XSL, and Script-Host Abuse (wmic /format, mshta, winrm.vbs)",
+    "url": "https://mranv.pages.dev/posts/detecting-com-xsl-and-script-host-abuse/",
+    "date": "2026-07-13",
+    "desc": "Part 5 of the WDAC detection-engineering series — detecting WMIC XSL stylesheets, mshta, winrm.vbs, and COM XSL transformations used to execute attacker code from trusted interpreters, with a Sigma ru"
+   },
+   {
+    "title": "Detecting WDAC-as-Weapon — Catching EDR-Blinding Before the Sensor Goes Dark",
+    "url": "https://mranv.pages.dev/posts/detecting-wdac-edr-blinding/",
+    "date": "2026-07-13",
+    "desc": "Part 4 of the WDAC detection-engineering series — detecting attackers who weaponise WDAC policies to switch off EDR at boot, including malicious .cip writes, GPO policy deployment, and the heartbeat-a"
+   },
+   {
+    "title": "Detecting Compiler and REPL Host Abuse (msbuild / dotnet / csi / rcsi / fsi)",
+    "url": "https://mranv.pages.dev/posts/detecting-compiler-and-repl-host-abuse/",
+    "date": "2026-07-13",
+    "desc": "Part 3 of the WDAC detection-engineering series — detecting trusted developer compilers and REPL hosts repurposed to execute attacker code, with a Sigma rule and parentage tuning guidance."
+   },
+   {
+    "title": "Detecting the Debugger-as-Injector (cdb / windbg / dbgsrv / WinDbgX)",
+    "url": "https://mranv.pages.dev/posts/detecting-debugger-as-injector-wdac/",
+    "date": "2026-07-13",
+    "desc": "Part 2 of the WDAC detection-engineering series — how to detect a Microsoft-signed debugger used to inject shellcode into a remote process, including a Sigma rule for script-driven injection and behav"
+   },
+   {
+    "title": "Detecting WDAC Bypass LOLBINs — A Baseline Image-Load Strategy",
+    "url": "https://mranv.pages.dev/posts/detecting-wdac-lolbin-image-loads/",
+    "date": "2026-07-13",
+    "desc": "Part 1 of the WDAC detection-engineering series — a baseline strategy for catching application-control bypass LOLBINs with Sysmon image-load and process-create telemetry, with a ready-to-use Sigma rul"
+   },
+   {
+    "title": "WDAC Bypass Techniques — The Complete Reference Catalog",
+    "url": "https://mranv.pages.dev/posts/wdac-bypass-techniques-reference-catalog/",
+    "date": "2026-07-13",
+    "desc": "An exhaustive, attributed catalogue of every publicly documented Windows Defender Application Control (Application Control for Business) bypass technique — LOLBINs, libraries, PowerShell/UMCI, COM/XSL"
+   },
+   {
+    "title": "A Field Guide to WDAC Bypass Techniques",
+    "url": "https://mranv.pages.dev/posts/wdac-bypass-landscape-field-guide/",
+    "date": "2026-07-13",
+    "desc": "A mechanism-grouped tour of the Windows Defender Application Control (Application Control for Business) bypass landscape — debuggers, compilers, signed utilities, COM/XSL, WSL, and novel exploitation "
+   }
+  ]
+ },
+ "credentials": [
+  {
+   "name": "B.Tech, Cyber/Computer Forensics and Counterterrorism",
+   "issuer": "Parul University",
+   "when": "2021–2025",
+   "kind": "degree"
+  },
+  {
+   "name": "Licentiate, Cybersecurity Management",
+   "issuer": "Charles Sturt University",
+   "when": "2023"
+  },
+  {
+   "name": "Licentiate, Ransomware Techniques",
+   "issuer": "Charles Sturt University",
+   "when": "2023"
+  },
+  {
+   "name": "IBM Cybersecurity Analyst Professional Certificate",
+   "issuer": "IBM",
+   "when": "2023",
+   "kind": "certificate"
+  },
+  {
+   "name": "Google Cybersecurity Professional Certificate",
+   "issuer": "Google",
+   "when": "2023",
+   "kind": "certificate"
+  },
+  {
+   "name": "80+ verified badges",
+   "issuer": "Credly",
+   "when": "",
+   "url": "https://www.credly.com/users/anubhavgain"
+  }
+ ],
+ "links": [
+  {
+   "label": "Email",
+   "url": "mailto:iamanubhavgain@gmail.com"
+  },
+  {
+   "label": "GitHub",
+   "url": "https://github.com/mranv",
+   "me": true
+  },
+  {
+   "label": "GitHub (work)",
+   "url": "https://github.com/anubhavg-icpl",
+   "me": true
+  },
+  {
+   "label": "LinkedIn",
+   "url": "https://www.linkedin.com/in/anubhavgain",
+   "me": true
+  },
+  {
+   "label": "X",
+   "url": "https://x.com/AnubhavGain",
+   "me": true
+  },
+  {
+   "label": "Blog",
+   "url": "https://mranv.pages.dev/",
+   "me": true
+  },
+  {
+   "label": "Credly",
+   "url": "https://www.credly.com/users/anubhavgain",
+   "me": true
+  },
+  {
+   "label": "ORCID",
+   "url": "https://orcid.org/0009-0004-4131-5428",
+   "me": true
+  }
+ ],
+ "more": [
+  "vibe",
+  "adpentest",
+  "opensearch-rust-sdk",
+  "osdls",
+  "appcontrolbusiness",
+  "tls.rs",
+  "linux.micrognu"
+ ]
+}

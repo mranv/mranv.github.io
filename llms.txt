@@ -2,37 +2,68 @@
 
 > Anubhav Gain (mranv) is a security engineer in Mumbai, India, building endpoint control, XDR pipelines and Rust security tooling at Infopercept. He founded Gain Fisheries, a fish hatchery in Pakhanjur, Chhattisgarh, in 2020.
 
-This file mirrors the facts on https://mranv.github.io/ (the canonical page). Keep the two in step when either changes.
+This file is generated from portfolio.config.json by scripts/build-data.mjs and mirrors the facts on https://mranv.github.io/ (the canonical page).
 
 ## Profile
 
-- Role: Security Software Engineer, Infopercept (Jul 2024 – present)
+- Role: Security Software Engineer, Infopercept (07/2024 – present)
 - Location: Mumbai, Maharashtra, India
-- Education: B.Tech, Cyber/Computer Forensics and Counterterrorism, Parul University (2021–2025); licentiates in Ransomware Techniques and Cybersecurity Management, Charles Sturt University (2023)
-- Earlier roles: DevSecOps Engineer, Atcults (Nov 2023 – Jul 2024); IT Security Specialist, Parul University (Nov 2022 – Oct 2023)
-- Certifications: 80+ verified Credly badges, including the IBM Cybersecurity Analyst and Google Cybersecurity professional certificates
-- Focus: endpoint security, application allow-listing, XDR / SIEM (Wazuh, OpenSearch), application security and VAPT, DevSecOps, Kubernetes, Rust, Go, eBPF
+- Focus: Endpoint security, Application allow-listing, Extended detection and response (XDR), Security information and event management (SIEM), Wazuh, OpenSearch, Application security, Vulnerability assessment and penetration testing, DevSecOps, Kubernetes, Rust, Go, eBPF
 - Contact: iamanubhavgain@gmail.com
 
-## Engagements
+## About
 
-- Mahindra Finance, endpoint security consultant (May 2026 – present): Invinsense 7.0 Unified Endpoint Control, application allow-listing, policy review to deployment workflows, endpoint telemetry across Windows, macOS and Linux.
-- Infopercept, security software engineer (Jul 2024 – present): deployment architecture for Invinsense XDR / OXDR (single and multi-tenant), custom OpenSearch Dashboards plugins, Rust monitoring agents, Wazuh + Fluent Bit alert pipelines.
-- SBI Life, application security consultant (Mar – May 2026): application security assessments and VAPT, design reviews against financial-sector and data-protection standards.
+Anubhav Gain (mranv) is a security software engineer in Mumbai, India. Since July 2024 he has worked at Infopercept, building the Invinsense XDR deployment architecture and Invinsense Unified Endpoint Control, and has consulted on endpoint security at Mahindra Finance and application security at SBI Life.
+
+Before that he was a DevSecOps engineer at Atcults (November 2023 to July 2024) and an IT security specialist at Parul University (November 2022 to October 2023). He holds a B.Tech in Cyber/Computer Forensics and Counterterrorism from Parul University (2021–2025) and two 2023 licentiates from Charles Sturt University, in Ransomware Techniques and Cybersecurity Management.
+
+He maintains open-source security tools in Rust, Go and Python, including Leviathan, Atomic Prevention, Agni, Krustron and eBPF File Monitor, writes field notes on application control and detection engineering, and founded Gain Fisheries, a fish hatchery in Pakhanjur, Chhattisgarh, in 2020.
+
+## Work
+
+- Security Software Engineer, Infopercept (07/2024 – present): Deployment architecture for Invinsense XDR / OXDR, single and multi-tenant. Custom OpenSearch Dashboards plugins, Rust monitoring agents, Wazuh and Fluent Bit alert pipelines.
+- Endpoint Security Consultant, Mahindra Finance (05/2026 – present): Invinsense 7.0 Unified Endpoint Control: application allow-listing, policy review to deployment workflows and endpoint telemetry across Windows, macOS and Linux.
+- Application Security Consultant, SBI Life (03/2026 – 05/2026): Application security assessments and VAPT, with design reviews against financial-sector and data-protection standards.
+- DevSecOps Engineer, Atcults (11/2023 – 07/2024): Security testing pipelines, infrastructure as code with Terraform, container and Kubernetes hardening.
+- IT Security Specialist, Parul University (11/2022 – 10/2023): Palo Alto firewalls, Red Hat and Windows servers, AWS and endpoint configuration management.
+- Founder, Gain Fisheries (2020 – present): A fish hatchery in Pakhanjur, Chhattisgarh.
+
+## Credentials
+
+- B.Tech, Cyber/Computer Forensics and Counterterrorism, Parul University (2021–2025)
+- Licentiate, Cybersecurity Management, Charles Sturt University (2023)
+- Licentiate, Ransomware Techniques, Charles Sturt University (2023)
+- IBM Cybersecurity Analyst Professional Certificate, IBM (2023)
+- Google Cybersecurity Professional Certificate, Google (2023)
+- 80+ verified badges, Credly
 
 ## Open source
 
-- [eBPF File Monitor](https://github.com/mranv/ebpf-file-monitor): Rust, kernel-level file telemetry
-- [Krustron](https://github.com/anubhavg-icpl/krustron): Go, GitOps across Kubernetes clusters
-- [Agni](https://github.com/anubhavg-icpl/agni): Go TUI for Firecracker microVMs
+- [Leviathan](https://github.com/anubhavg-icpl/leviathan): A Windows kernel-mode EDR/XDR framework written in Rust on windows-drivers-rs.
+- [Atomic Prevention](https://github.com/anubhavg-icpl/atomic-prevention): A prevention-focused living-off-the-land testing framework mapped to MITRE ATT&CK.
+- [Agni](https://github.com/anubhavg-icpl/agni): A CLI and web UI for running Firecracker microVMs, an alternative to firectl.
+- [Krustron](https://github.com/anubhavg-icpl/krustron): An open-source Devtron alternative: one dashboard for clusters, GitOps CI/CD and observability.
+- [eBPF File Monitor](https://github.com/mranv/ebpf-file-monitor): File monitoring for Linux in Rust, with inotify and eBPF and timestamped audit logs.
+- [Convoy](https://github.com/anubhavg-icpl/convoy): Your own autonomous system on one VPS, as a Docker Compose stack.
+
+## Writing
+
+- [Detecting Novel WDAC Bypass Exploitation (Browser & Electron)](https://mranv.pages.dev/posts/detecting-novel-wdac-exploitation-browser-electron/)
+- [Detecting Catalog-Hygiene and Signing-Trust Abuse](https://mranv.pages.dev/posts/detecting-catalog-hygiene-and-signing-trust-abuse/)
+- [Detecting Signed-Utility and Deserialization Abuse (InstallUtil / AddInUtil / runscripthelper)](https://mranv.pages.dev/posts/detecting-signed-utility-and-deserialization-abuse/)
+- [Detecting WSL-Family Abuse (bash / lxrun / wsl / wslconfig / wslhost)](https://mranv.pages.dev/posts/detecting-wsl-family-abuse/)
+- [Detecting UMCI Bypasses and PowerShell Constrained Language Mode Escapes](https://mranv.pages.dev/posts/detecting-umci-powershell-clm-escapes/)
+- [Detecting COM, XSL, and Script-Host Abuse (wmic /format, mshta, winrm.vbs)](https://mranv.pages.dev/posts/detecting-com-xsl-and-script-host-abuse/)
+- [Detecting WDAC-as-Weapon — Catching EDR-Blinding Before the Sensor Goes Dark](https://mranv.pages.dev/posts/detecting-wdac-edr-blinding/)
+- [Detecting Compiler and REPL Host Abuse (msbuild / dotnet / csi / rcsi / fsi)](https://mranv.pages.dev/posts/detecting-compiler-and-repl-host-abuse/)
+- [All posts](https://mranv.pages.dev/archive/)
 
 ## Profiles
 
+- [GitHub](https://github.com/mranv)
+- [GitHub (work)](https://github.com/anubhavg-icpl)
 - [LinkedIn](https://www.linkedin.com/in/anubhavgain)
-- [GitHub (mranv)](https://github.com/mranv)
-- [GitHub (anubhavg-icpl)](https://github.com/anubhavg-icpl)
 - [X](https://x.com/AnubhavGain)
-- [ORCID](https://orcid.org/0009-0004-4131-5428)
+- [Blog](https://mranv.pages.dev/)
 - [Credly](https://www.credly.com/users/anubhavgain)
-- [Field notes](https://mranv.pages.dev/)
-- [Blog posts](https://github.com/mranv/blogs)
+- [ORCID](https://orcid.org/0009-0004-4131-5428)

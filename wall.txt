@@ -1,0 +1,379 @@
+//! Common types and definitions shared between driver and user-mode applications
+//!
+//! This crate provides shared IOCTL definitions, structures, and constants
+//! that are used by both the kernel-mode driver and user-mode applications.
+#![no_std]
+/// Device interface GUID for finding the Leviathan device
+/// {12345678-1234-1234-1234-123456789ABC}
+pub const DEVICE_INTERFACE_GUID: [u8; 16] = [
+    0x78, 0x56, 0x34, 0x12, // Data1 (little-endian)
+    0x34, 0x12,             // Data2
+    0x34, 0x12,             // Data3
+    0x12, 0x34, 0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC, // Data4
+];
+/// Custom device type for IOCTL codes
+pub const FILE_DEVICE_LEVIATHAN: u32 = 0x8000;
+/// IOCTL code definitions
+pub mod ioctl {
+    use super::FILE_DEVICE_LEVIATHAN;
+    /// Helper macro to create IOCTL codes
+    const fn ctl_code(device_type: u32, function: u32, method: u32, access: u32) -> u32 {
+        (device_type << 16) | (access << 14) | (function << 2) | method
+    }
+    // Method types
+    pub const METHOD_BUFFERED: u32 = 0;
+    pub const METHOD_IN_DIRECT: u32 = 1;
+    pub const METHOD_OUT_DIRECT: u32 = 2;
+    pub const METHOD_NEITHER: u32 = 3;
+    // Access types
+    pub const FILE_ANY_ACCESS: u32 = 0;
+    pub const FILE_READ_ACCESS: u32 = 1;
+    pub const FILE_WRITE_ACCESS: u32 = 2;
+    /// Get driver version string
+    pub const IOCTL_GET_VERSION: u32 =
+        ctl_code(FILE_DEVICE_LEVIATHAN, 0x800, METHOD_BUFFERED, FILE_ANY_ACCESS);
+    /// Echo data back (input -> output)
+    pub const IOCTL_ECHO: u32 =
+        ctl_code(FILE_DEVICE_LEVIATHAN, 0x801, METHOD_BUFFERED, FILE_ANY_ACCESS);
+    /// Get driver statistics
+    pub const IOCTL_GET_STATS: u32 =
+        ctl_code(FILE_DEVICE_LEVIATHAN, 0x802, METHOD_BUFFERED, FILE_ANY_ACCESS);
+}
+/// Driver statistics structure - shared between kernel and user mode
+#[repr(C)]
+#[derive(Debug, Clone, Copy, Default)]
+pub struct DriverStats {
+    pub read_count: u64,
+    pub write_count: u64,
+    pub ioctl_count: u64,
+    pub bytes_read: u64,
+    pub bytes_written: u64,
+}
+/// Version information structure
+#[repr(C)]
+#[derive(Debug, Clone, Copy)]
+pub struct VersionInfo {
+    pub major: u16,
+    pub minor: u16,
+    pub patch: u16,
+    pub build: u16,
+}
+impl VersionInfo {
+    pub const fn new(major: u16, minor: u16, patch: u16, build: u16) -> Self {
+        Self { major, minor, patch, build }
+    }
+}
+//! Image (DLL/EXE) Load Monitoring
+//!
+//! Uses PsSetLoadImageNotifyRoutine to receive notifications when
+//! executable images are loaded into any process.
+//!
+//! # Capabilities
+//! - Monitor all DLL and EXE loads system-wide
+//! - Detect DLL injection attacks
+//! - Identify unsigned or suspicious modules
+//! - Track driver loading in kernel space
+//!
+//! # Use Cases
+//! - Detect DLL hijacking
+//! - Monitor for reflective DLL injection
+//! - Block known malicious DLLs
+//! - Audit module loading for compliance
+use core::sync::atomic::{AtomicBool, Ordering};
+use wdk::println;
+use wdk_sys::{
+    ntddk::{PsSetLoadImageNotifyRoutine, PsRemoveLoadImageNotifyRoutine},
+    HANDLE, NTSTATUS, PIMAGE_INFO, PUNICODE_STRING, STATUS_SUCCESS,
+};
+/// Flag indicating if image callbacks are registered
+static REGISTERED: AtomicBool = AtomicBool::new(false);
+/// Image load event types
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ImageType {
+    /// User-mode executable (EXE)
+    UserExe,
+    /// User-mode library (DLL)
+    UserDll,
+    /// Kernel-mode driver (SYS)
+    KernelDriver,
+    /// Unknown image type
+    Unknown,
+}
+/// Information about an image load event
+#[repr(C)]
+#[derive(Debug)]
+pub struct ImageLoadEvent {
+    pub image_type: ImageType,
+    pub process_id: usize,
+    pub image_base: usize,
+    pub image_size: usize,
+    pub is_kernel_mode: bool,
+}
+/// Register the image load callback
+///
+/// # Safety
+/// Must be called from PASSIVE_LEVEL
+pub unsafe fn register() -> Result<(), NTSTATUS> {
+    if REGISTERED.load(Ordering::SeqCst) {
+        return Ok(());
+    }
+    let status = unsafe {
+        PsSetLoadImageNotifyRoutine(Some(image_load_callback))
+    };
+    if status != STATUS_SUCCESS {
+        println!("[Leviathan] Failed to register image callback: {:#x}", status);
+        return Err(status);
+    }
+    REGISTERED.store(true, Ordering::SeqCst);
+    println!("[Leviathan] Image load callback registered");
+    Ok(())
+}
+/// Unregister the image load callback
+///
+/// # Safety
+/// Must be called from PASSIVE_LEVEL
+pub unsafe fn unregister() {
+    if !REGISTERED.load(Ordering::SeqCst) {
+// Package handlers - Cost management handlers
+// Author: Anubhav Gain
+package handlers
+import (
+  "net/http"
+  "strconv"
+  "time"
+  "github.com/anubhavg-icpl/krustron/internal/cost"
+  "github.com/gin-gonic/gin"
+)
+// GetCostSummary returns the platform cost summary
+func GetCostSummary(svc *cost.Service) gin.HandlerFunc {
+  return func(c *gin.Context) {
+    summary, err := svc.GetCostSummary(c.Request.Context())
+    if err != nil {
+      handleError(c, err)
+      return
+    }
+    c.JSON(http.StatusOK, gin.H{"data": summary})
+  }
+}
+// ListCostAllocations returns cost allocations filtered by cluster/namespace
+func ListCostAllocations(svc *cost.Service) gin.HandlerFunc {
+  return func(c *gin.Context) {
+    limit, _ := strconv.Atoi(c.DefaultQuery("limit", "100"))
+    filter := cost.CostAllocationFilter{
+      ClusterID:    c.Query("cluster"),
+      Namespace:    c.Query("namespace"),
+      WorkloadType: c.Query("workload_type"),
+      Limit:        limit,
+    }
+    allocations, err := svc.GetCostAllocation(c.Request.Context(), filter)
+    if err != nil {
+      handleError(c, err)
+      return
+    }
+    c.JSON(http.StatusOK, gin.H{"data": allocations})
+  }
+}
+// ListBudgets returns all configured budgets
+func ListBudgets(svc *cost.Service) gin.HandlerFunc {
+  return func(c *gin.Context) {
+    budgets, err := svc.ListBudgets(c.Request.Context())
+    if err != nil {
+      handleError(c, err)
+      return
+    }
+    c.JSON(http.StatusOK, gin.H{"data": budgets})
+  }
+}
+// CreateBudget creates a new budget
+func CreateBudget(svc *cost.Service) gin.HandlerFunc {
+  return func(c *gin.Context) {
+    var budget cost.Budget
+    if err := c.ShouldBindJSON(&budget); err != nil {
+      c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+      return
+    }
+    budget.ID = "" // let the DB assign
+    if budget.PeriodStart.IsZero() {
+      budget.PeriodStart = time.Now()
+    }
+    if err := svc.CreateBudget(c.Request.Context(), &budget); err != nil {
+      handleError(c, err)
+      return
+    }
+    c.JSON(http.StatusCreated, gin.H{"data": budget})
+  }
+}
+// GenerateCostReport generates a cost report
+func GenerateCostReport(svc *cost.Service) gin.HandlerFunc {
+  return func(c *gin.Context) {
+    now := time.Now()
+// Package handlers provides HTTP handlers for the Krustron API
+// Author: Anubhav Gain
+package handlers
+import (
+  "net/http"
+  "strconv"
+  "github.com/anubhavg-icpl/krustron/internal/gitops"
+  "github.com/anubhavg-icpl/krustron/pkg/errors"
+  "github.com/gin-gonic/gin"
+)
+// ListApplications returns all applications
+func ListApplications(svc *gitops.Service) gin.HandlerFunc {
+  return func(c *gin.Context) {
+    page, _ := strconv.Atoi(c.DefaultQuery("page", "1"))
+    limit, _ := strconv.Atoi(c.DefaultQuery("limit", "20"))
+    clusterID := c.Query("cluster")
+    namespace := c.Query("namespace")
+    status := c.Query("status")
+    filters := &gitops.ListFilters{
+      Page:      page,
+      Limit:     limit,
+      ClusterID: clusterID,
+      Namespace: namespace,
+      Status:    status,
+    }
+    apps, total, err := svc.List(c.Request.Context(), filters)
+    if err != nil {
+      handleError(c, err)
+      return
+    }
+    c.JSON(http.StatusOK, gin.H{
+      "data":  apps,
+      "total": total,
+      "page":  page,
+      "limit": limit,
+    })
+  }
+}
+// GetApplication returns a single application
+func GetApplication(svc *gitops.Service) gin.HandlerFunc {
+  return func(c *gin.Context) {
+    id := c.Param("id")
+    app, err := svc.Get(c.Request.Context(), id)
+    if err != nil {
+      handleError(c, err)
+      return
+    }
+    c.JSON(http.StatusOK, gin.H{"data": app})
+  }
+}
+// CreateApplication creates a new application
+func CreateApplication(svc *gitops.Service) gin.HandlerFunc {
+  return func(c *gin.Context) {
+    var req gitops.CreateRequest
+    if err := c.ShouldBindJSON(&req); err != nil {
+      c.JSON(http.StatusBadRequest, errors.BadRequest(err.Error()).ToResponse(getRequestID(c)))
+      return
+    }
+    userID, _ := c.Get("user_id")
+    req.CreatedBy = userID.(string)
+    app, err := svc.Create(c.Request.Context(), &req)
+    if err != nil {
+      handleError(c, err)
+      return
+    }
+    c.JSON(http.StatusCreated, gin.H{"data": app})
+  }
+from fastapi import APIRouter, Depends, Query
+from fastapi.responses import JSONResponse
+from sqlalchemy import select, func
+from sqlalchemy.ext.asyncio import AsyncSession
+from backend.app.db.database import get_db
+from backend.app.models.adversary import AdversaryGroup
+from backend.app.models.technique import Technique
+router = APIRouter()
+@router.get("")
+async def list_adversaries(
+    search: str | None = None,
+    skip: int = 0,
+    limit: int = Query(default=50, le=200),
+    db: AsyncSession = Depends(get_db),
+):
+    query = select(AdversaryGroup)
+    if search:
+        query = query.where(
+            AdversaryGroup.name.ilike(f"%{search}%")
+            | AdversaryGroup.id.ilike(f"%{search}%")
+        )
+    # Get total count before pagination
+    count_query = select(func.count()).select_from(query.subquery())
+    total_count = await db.scalar(count_query) or 0
+    result = await db.execute(query.offset(skip).limit(limit))
+    groups = result.scalars().all()
+    return {
+        "adversaries": [_serialize_group(g) for g in groups],
+        "total": total_count,
+    }
+@router.get("/stats")
+async def adversary_stats(db: AsyncSession = Depends(get_db)):
+    count = await db.scalar(select(func.count()).select_from(AdversaryGroup))
+    return {"total_groups": count or 0}
+@router.get("/{group_id}")
+async def get_adversary(group_id: str, db: AsyncSession = Depends(get_db)):
+    result = await db.execute(
+        select(AdversaryGroup).where(AdversaryGroup.id == group_id)
+    )
+    group = result.scalar_one_or_none()
+    if not group:
+        return JSONResponse(status_code=404, content={"error": "Adversary group not found"})
+    # Get associated techniques
+    technique_ids = group.technique_ids or []
+    techniques = []
+    if technique_ids:
+        tech_result = await db.execute(
+            select(Technique).where(Technique.id.in_(technique_ids))
+        )
+        techniques = tech_result.scalars().all()
+    data = _serialize_group(group)
+    data["techniques"] = [
+        {
+            "id": t.id,
+            "name": t.name,
+            "tactics": t.tactics or [],
+            "platforms": t.platforms or [],
+        }
+        for t in techniques
+    ]
+    return data
+def _serialize_group(g: AdversaryGroup) -> dict:
+    return {
+        "id": g.id,
+use tokio::net::TcpListener;
+use tokio::io::{AsyncWriteExt, AsyncReadExt};
+use tokio_native_tls::TlsAcceptor;
+use native_tls::{Identity, TlsAcceptor as NativeTlsAcceptor};
+use std::fs::File;
+use std::io::Read;
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // Load server's identity
+    let mut file = File::open("../certs/identity.pfx")?; // Adjusted path to identity.pfx
+    let mut identity = vec![];
+    file.read_to_end(&mut identity)?;
+    let identity = Identity::from_pkcs12(&identity, "password")?;
+    // Create a TLS acceptor
+    let native_acceptor = NativeTlsAcceptor::builder(identity).build()?;
+    let acceptor = TlsAcceptor::from(native_acceptor);
+    // Create a TCP listener
+    let listener = TcpListener::bind("127.0.0.1:12345").await?;
+    println!("Server listening on 127.0.0.1:12345");
+    loop {
+        let (socket, _) = listener.accept().await?;
+        let acceptor = acceptor.clone();
+        tokio::spawn(async move {
+            match acceptor.accept(socket).await {
+                Ok(mut tls_stream) => {
+                    if let Err(e) = tls_stream.write_all(b"Hello from server!").await {
+                        eprintln!("Failed to write to stream: {}", e);
+                    }
+                    if let Err(e) = tls_stream.shutdown().await {
+                        eprintln!("Failed to shut down stream: {}", e);
+                    }
+                }
+                Err(e) => {
+                    eprintln!("Failed to accept connection: {}", e);
+                }
+            }
+        });
+    }
+}

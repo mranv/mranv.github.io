@@ -1,0 +1,484 @@
+{
+  "identity": {
+    "name": "Anubhav Gain",
+    "barTitle": "ANUBHAV GAIN",
+    "initials": "AG",
+    "terminalUser": "mranv",
+    "domain": "mranv.github.io",
+    "tagline": "endpoint control, xdr, rust.",
+    "github": "mranv",
+    "githubAccounts": [
+      "mranv",
+      "anubhavg-icpl"
+    ],
+    "storagePrefix": "mranv"
+  },
+  "intro": {
+    "messages": [
+      [
+        "i build",
+        "the software",
+        "that says no."
+      ],
+      [
+        "default deny,",
+        "from the kernel up,",
+        "written in rust."
+      ]
+    ]
+  },
+  "about": {
+    "bio": "Security software engineer at Infopercept. I build endpoint control, XDR pipelines and Rust agents: software whose job is to say no.",
+    "extra": "Mumbai, India · saying no as a service",
+    "long": [
+      "Anubhav Gain (mranv) is a security software engineer in Mumbai, India. Since July 2024 he has worked at Infopercept, building the Invinsense XDR deployment architecture and Invinsense Unified Endpoint Control, and has consulted on endpoint security at Mahindra Finance and application security at SBI Life.",
+      "Before that he was a DevSecOps engineer at Atcults (November 2023 to July 2024) and an IT security specialist at Parul University (November 2022 to October 2023). He holds a B.Tech in Cyber/Computer Forensics and Counterterrorism from Parul University (2021–2025) and two 2023 licentiates from Charles Sturt University, in Ransomware Techniques and Cybersecurity Management.",
+      "He maintains open-source security tools in Rust, Go and Python, including Leviathan, Atomic Prevention, Agni, Krustron and eBPF File Monitor, writes field notes on application control and detection engineering, and founded Gain Fisheries, a fish hatchery in Pakhanjur, Chhattisgarh, in 2020."
+    ]
+  },
+  "links": [
+    {
+      "label": "Email",
+      "url": "mailto:iamanubhavgain@gmail.com"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/mranv",
+      "me": true
+    },
+    {
+      "label": "GitHub (work)",
+      "url": "https://github.com/anubhavg-icpl",
+      "me": true
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/anubhavgain",
+      "me": true
+    },
+    {
+      "label": "X",
+      "url": "https://x.com/AnubhavGain",
+      "me": true
+    },
+    {
+      "label": "Blog",
+      "url": "https://mranv.pages.dev/",
+      "me": true
+    },
+    {
+      "label": "Credly",
+      "url": "https://www.credly.com/users/anubhavgain",
+      "me": true
+    },
+    {
+      "label": "ORCID",
+      "url": "https://orcid.org/0009-0004-4131-5428",
+      "me": true
+    }
+  ],
+  "work": [
+    {
+      "when": "07/2024 – present",
+      "title": "Security Software Engineer",
+      "org": "Infopercept",
+      "desc": "Deployment architecture for Invinsense XDR / OXDR, single and multi-tenant. Custom OpenSearch Dashboards plugins, Rust monitoring agents, Wazuh and Fluent Bit alert pipelines.",
+      "url": "https://www.infopercept.com/"
+    },
+    {
+      "when": "05/2026 – present",
+      "title": "Endpoint Security Consultant",
+      "org": "Mahindra Finance",
+      "desc": "Invinsense 7.0 Unified Endpoint Control: application allow-listing, policy review to deployment workflows and endpoint telemetry across Windows, macOS and Linux."
+    },
+    {
+      "when": "03/2026 – 05/2026",
+      "title": "Application Security Consultant",
+      "org": "SBI Life",
+      "desc": "Application security assessments and VAPT, with design reviews against financial-sector and data-protection standards."
+    },
+    {
+      "when": "11/2023 – 07/2024",
+      "title": "DevSecOps Engineer",
+      "org": "Atcults",
+      "desc": "Security testing pipelines, infrastructure as code with Terraform, container and Kubernetes hardening."
+    },
+    {
+      "when": "11/2022 – 10/2023",
+      "title": "IT Security Specialist",
+      "org": "Parul University",
+      "where": "Vadodara",
+      "desc": "Palo Alto firewalls, Red Hat and Windows servers, AWS and endpoint configuration management."
+    },
+    {
+      "when": "2020 – present",
+      "title": "Founder",
+      "org": "Gain Fisheries",
+      "where": "Pakhanjur, Chhattisgarh",
+      "desc": "A fish hatchery in Pakhanjur, Chhattisgarh."
+    }
+  ],
+  "projects": [
+    {
+      "name": "Leviathan",
+      "tag": "Kernel EDR · Rust",
+      "desc": "A Windows kernel-mode EDR/XDR framework written in Rust on windows-drivers-rs.",
+      "long": "Leviathan is a Windows kernel-mode driver framework in Rust. It registers process, thread, image, registry and object callbacks, runs a rule and behaviour engine mapped to MITRE ATT&CK, scans pool tags for memory forensics, detects hooks, supports ELAM, and streams telemetry to user mode over a lock-free ring buffer and ETW.",
+      "githubRepo": "anubhavg-icpl/leviathan",
+      "shots": [
+        "shots/leviathan-banner.webp",
+        "shots/leviathan-architecture.webp"
+      ],
+      "stack": [
+        "Rust",
+        "Windows",
+        "KMDF",
+        "ETW"
+      ],
+      "url": "https://github.com/anubhavg-icpl/leviathan",
+      "schema": true
+    },
+    {
+      "name": "Atomic Prevention",
+      "tag": "Prevention testing · Python",
+      "desc": "A prevention-focused living-off-the-land testing framework mapped to MITRE ATT&CK.",
+      "long": "Atomic Prevention flips Atomic Red Team: instead of testing detection, it tests whether preventative controls block living-off-the-land techniques. It ingests LOLBAS, LOLDrivers, LOLRMM and Atomic Red Team, maps them to ATT&CK techniques and adversary groups, generates a playbook per group, runs it with a PowerShell agent and reports what was blocked, detected or allowed.",
+      "githubRepo": "anubhavg-icpl/atomic-prevention",
+      "shots": [
+        "shots/atomic-prevention-dashboard.webp",
+        "shots/atomic-prevention-techniques.webp",
+        "shots/atomic-prevention-playbook.webp"
+      ],
+      "stack": [
+        "Python",
+        "PowerShell",
+        "Docker",
+        "MITRE ATT&CK"
+      ],
+      "url": "https://github.com/anubhavg-icpl/atomic-prevention",
+      "schema": true
+    },
+    {
+      "name": "Agni",
+      "tag": "MicroVMs · Go",
+      "desc": "A CLI and web UI for running Firecracker microVMs, an alternative to firectl.",
+      "long": "Agni manages Firecracker microVMs from a command line and a web interface: create, start, stop and delete VMs, open a serial console, save configuration profiles and watch status and logs. Agni is Sanskrit for fire.",
+      "githubRepo": "anubhavg-icpl/agni",
+      "shots": [
+        "shots/agni-dashboard.webp",
+        "shots/agni-console.webp",
+        "shots/agni-vms.webp",
+        "shots/agni-templates.webp"
+      ],
+      "stack": [
+        "Go",
+        "Firecracker",
+        "KVM",
+        "Linux"
+      ],
+      "url": "https://github.com/anubhavg-icpl/agni",
+      "schema": true
+    },
+    {
+      "name": "Krustron",
+      "tag": "Kubernetes · Go",
+      "desc": "An open-source Devtron alternative: one dashboard for clusters, GitOps CI/CD and observability.",
+      "long": "Krustron is a Kubernetes-native platform that brings multi-cluster management, GitOps pipelines with ArgoCD, container scanning and policy enforcement, observability and fine-grained RBAC into a single dashboard.",
+      "githubRepo": "anubhavg-icpl/krustron",
+      "shots": [
+        "shots/krustron.webp"
+      ],
+      "stack": [
+        "Go",
+        "Kubernetes",
+        "ArgoCD",
+        "Docker"
+      ],
+      "url": "https://github.com/anubhavg-icpl/krustron",
+      "schema": true
+    },
+    {
+      "name": "eBPF File Monitor",
+      "tag": "File telemetry · Rust",
+      "desc": "File monitoring for Linux in Rust, with inotify and eBPF and timestamped audit logs.",
+      "long": "ebpf-file-monitor tracks access, open, close, modify, create, delete, move and attribute events on a file, records the process, user and size change behind each one with millisecond timestamps, and writes text or JSON.",
+      "githubRepo": "mranv/ebpf-file-monitor",
+      "shots": [
+        "shots/ebpf-file-monitor.webp"
+      ],
+      "stack": [
+        "Rust",
+        "eBPF",
+        "Linux"
+      ],
+      "url": "https://github.com/mranv/ebpf-file-monitor",
+      "schema": true
+    },
+    {
+      "name": "Convoy",
+      "tag": "Self-hosted AS · Shell",
+      "desc": "Your own autonomous system on one VPS, as a Docker Compose stack.",
+      "long": "Convoy runs BGP with RPKI route origin validation (BIRD 2, Routinator), an authoritative DNSSEC zone (NSD), a public NTP server with NTS (chrony), mail with DKIM and DANE (Postfix, Dovecot) and HTTP/3 (nginx) on one host. An offline lab runs 32 end-to-end checks before anything is deployed.",
+      "githubRepo": "anubhavg-icpl/convoy",
+      "shots": [
+        "shots/convoy.webp"
+      ],
+      "stack": [
+        "Shell",
+        "Docker",
+        "BGP",
+        "DNSSEC"
+      ],
+      "url": "https://github.com/anubhavg-icpl/convoy",
+      "schema": true
+    },
+    {
+      "name": "vibe",
+      "tag": "Prompts · Python",
+      "desc": "A library of AI chat modes for software engineering, architecture and security analysis.",
+      "long": "vibe is an organised collection of system prompts and chat modes for engineering workflows.",
+      "githubRepo": "anubhavg-icpl/vibe",
+      "more": true,
+      "shots": [],
+      "stack": [
+        "Python"
+      ],
+      "url": "https://github.com/anubhavg-icpl/vibe"
+    },
+    {
+      "name": "adPentest",
+      "tag": "Docs · Active Directory",
+      "desc": "Documentation for Windows Active Directory penetration testing.",
+      "long": "Notes and walkthroughs for Active Directory penetration testing.",
+      "githubRepo": "mranv/adPentest",
+      "more": true,
+      "shots": [],
+      "stack": [
+        "Markdown",
+        "Active Directory",
+        "Windows"
+      ],
+      "url": "https://github.com/mranv/adPentest"
+    },
+    {
+      "name": "opensearch-rust-sdk",
+      "tag": "SDK · Rust",
+      "desc": "An OpenSearch Extensions SDK for Rust, built at Infopercept.",
+      "long": "An async Rust SDK for the OpenSearch Extensions API.",
+      "githubRepo": "Infopercept/opensearch-rust-sdk",
+      "more": true,
+      "shots": [],
+      "stack": [
+        "Rust",
+        "OpenSearch"
+      ],
+      "url": "https://github.com/Infopercept/opensearch-rust-sdk"
+    },
+    {
+      "name": "osdls",
+      "tag": "SIEM · Shell",
+      "desc": "Wazuh, Logstash, OpenSearch and OpenSearch Dashboards as one stack.",
+      "long": "Scripts that stand up Wazuh with Logstash, OpenSearch and OpenSearch Dashboards.",
+      "githubRepo": "mranv/osdls",
+      "more": true,
+      "shots": [],
+      "stack": [
+        "Shell",
+        "Wazuh",
+        "OpenSearch"
+      ],
+      "url": "https://github.com/mranv/osdls"
+    },
+    {
+      "name": "appControlBusiness",
+      "tag": "WDAC · Notes",
+      "desc": "Working notes on App Control for Business (WDAC).",
+      "long": "Policies, references and notes on Microsoft App Control for Business.",
+      "githubRepo": "anubhavg-icpl/appControlBusiness",
+      "more": true,
+      "shots": [],
+      "stack": [
+        "WDAC",
+        "Windows"
+      ],
+      "url": "https://github.com/anubhavg-icpl/appControlBusiness"
+    },
+    {
+      "name": "tls.rs",
+      "tag": "Networking · Rust",
+      "desc": "A TCP client and server in Rust with TLS and real-time data transmission.",
+      "long": "A small Rust TCP client-server pair that streams data over TLS.",
+      "githubRepo": "mranv/tls.rs",
+      "more": true,
+      "shots": [],
+      "stack": [
+        "Rust",
+        "TLS"
+      ],
+      "url": "https://github.com/mranv/tls.rs"
+    },
+    {
+      "name": "linux.micrognu",
+      "tag": "Distro · Linux",
+      "desc": "A small GUI Linux distribution for QEMU, built from the kernel, BusyBox and Nano-X.",
+      "long": "A minimal Linux distribution with a GUI, assembled from the Linux kernel, BusyBox and Microwindows/Nano-X to run on QEMU.",
+      "githubRepo": "mranv/linux.micrognu",
+      "more": true,
+      "shots": [],
+      "stack": [
+        "Linux",
+        "BusyBox",
+        "QEMU"
+      ],
+      "url": "https://github.com/mranv/linux.micrognu"
+    }
+  ],
+  "talks": [],
+  "writing": {
+    "feed": "https://mranv.pages.dev/rss.xml",
+    "archive": "https://mranv.pages.dev/archive/",
+    "site": "https://mranv.pages.dev/",
+    "count": 12
+  },
+  "credentials": [
+    {
+      "name": "B.Tech, Cyber/Computer Forensics and Counterterrorism",
+      "issuer": "Parul University",
+      "when": "2021–2025",
+      "kind": "degree"
+    },
+    {
+      "name": "Licentiate, Cybersecurity Management",
+      "issuer": "Charles Sturt University",
+      "when": "2023"
+    },
+    {
+      "name": "Licentiate, Ransomware Techniques",
+      "issuer": "Charles Sturt University",
+      "when": "2023"
+    },
+    {
+      "name": "IBM Cybersecurity Analyst Professional Certificate",
+      "issuer": "IBM",
+      "when": "2023",
+      "kind": "certificate"
+    },
+    {
+      "name": "Google Cybersecurity Professional Certificate",
+      "issuer": "Google",
+      "when": "2023",
+      "kind": "certificate"
+    },
+    {
+      "name": "80+ verified badges",
+      "issuer": "Credly",
+      "when": "",
+      "url": "https://www.credly.com/users/anubhavgain"
+    }
+  ],
+  "wallRepos": [
+    [
+      "anubhavg-icpl/leviathan",
+      2
+    ],
+    [
+      "mranv/ebpf-file-monitor",
+      1
+    ],
+    [
+      "anubhavg-icpl/krustron",
+      2
+    ],
+    [
+      "anubhavg-icpl/atomic-prevention",
+      1
+    ],
+    [
+      "mranv/tls.rs",
+      1
+    ]
+  ],
+  "siteStack": [
+    {
+      "name": "Vanilla JS",
+      "via": "zero-build frontend"
+    },
+    {
+      "name": "Canvas 2D",
+      "via": "intro + contribution ink"
+    },
+    {
+      "name": "GitHub Pages",
+      "via": "hosting"
+    }
+  ],
+  "seo": {
+    "siteUrl": "https://mranv.github.io/",
+    "title": "Anubhav Gain — Security Engineer",
+    "siteTitle": "Anubhav Gain — work, projects and stack",
+    "description": "Anubhav Gain is a security engineer in Mumbai, India, building endpoint control, XDR pipelines and Rust tooling at Infopercept. Saying “No” as a Service.",
+    "siteDescription": "Work history, open-source projects, writing and stack of Anubhav Gain, security engineer at Infopercept, opened in an editor.",
+    "social": "Endpoint control, XDR pipelines and Rust security tooling. Saying “No” as a Service.",
+    "ogImage": "assets/og.jpg",
+    "ogImageAlt": "Anubhav Gain, Security Engineer, beside an orange 3D retro computer whose screen reads NO.",
+    "photo": "assets/anubhav-gain.jpg",
+    "locale": "en_IN",
+    "twitter": "@AnubhavGain",
+    "created": "2023-12-23",
+    "person": {
+      "givenName": "Anubhav",
+      "familyName": "Gain",
+      "alternateName": [
+        "mranv",
+        "anubhavg-icpl"
+      ],
+      "email": "iamanubhavgain@gmail.com",
+      "jobTitle": "Security Software Engineer",
+      "description": "Security engineer in Mumbai, India, building endpoint control, XDR pipelines and Rust security tooling at Infopercept; founder of Gain Fisheries, a fish hatchery in Pakhanjur, Chhattisgarh.",
+      "worksFor": {
+        "name": "Infopercept",
+        "url": "https://www.infopercept.com/"
+      },
+      "home": {
+        "locality": "Mumbai",
+        "region": "Maharashtra",
+        "country": "IN"
+      },
+      "alumniOf": [
+        {
+          "name": "Parul University",
+          "url": "https://paruluniversity.ac.in/"
+        },
+        {
+          "name": "Charles Sturt University",
+          "url": "https://www.csu.edu.au/"
+        }
+      ],
+      "knowsAbout": [
+        "Endpoint security",
+        "Application allow-listing",
+        "Extended detection and response (XDR)",
+        "Security information and event management (SIEM)",
+        "Wazuh",
+        "OpenSearch",
+        "Application security",
+        "Vulnerability assessment and penetration testing",
+        "DevSecOps",
+        "Kubernetes",
+        "Rust",
+        "Go",
+        "eBPF"
+      ],
+      "orcid": "0009-0004-4131-5428"
+    },
+    "founded": {
+      "name": "Gain Fisheries",
+      "description": "Sustainable fish hatchery in Pakhanjur, Chhattisgarh, India.",
+      "foundingDate": "2020",
+      "locality": "Pakhanjur",
+      "region": "Chhattisgarh",
+      "country": "IN"
+    },
+    "summary": "Anubhav Gain (mranv) is a security engineer in Mumbai, India, building endpoint control, XDR pipelines and Rust security tooling at Infopercept. He founded Gain Fisheries, a fish hatchery in Pakhanjur, Chhattisgarh, in 2020."
+  }
+}

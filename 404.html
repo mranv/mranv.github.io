@@ -1,22 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 — Anubhav Gain</title>
-  <meta name="robots" content="noindex">
-  <!-- Absolute paths on purpose: GitHub Pages serves this file at any depth
-       (/foo/bar/), where relative asset URLs would 404 too. -->
-  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon.png">
-  <style>
-    body { margin: 0; min-height: 100vh; display: grid; place-content: center; gap: 1rem;
-           text-align: center; background: #0a0a0a; color: #fff; font: 1.1rem/1.5 system-ui, sans-serif; }
-    h1 { margin: 0; font-size: clamp(4rem, 20vw, 10rem); line-height: 1; }
-    a { color: inherit; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 — Anubhav Gain</title>
+<meta name="robots" content="noindex">
+<!-- Absolute paths on purpose: GitHub Pages serves this file at any depth (/foo/bar/), where relative
+     URLs would 404 too. Self-contained styles for the same reason: no shared stylesheet to miss. -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  @font-face {
+    font-family: "Plex Mono";
+    src: url("/assets/fonts/IBMPlexMono-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+  }
+  /* Blackmoney, the site's default theme. Kept in step by hand with THEME_DEFS in scripts/build-data.mjs. */
+  body {
+    margin: 0;
+    min-height: 100svh;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    text-align: center;
+    gap: 24px;
+    padding: 24px;
+    box-sizing: border-box;
+    background: #0b0b0a;
+    color: #a8a49b;
+    font: 400 14px/24px "Plex Mono", ui-monospace, monospace;
+  }
+  /* Pixel art drawn at 224x126 and stored at 3x, on the page's own background colour so it has no edge. */
+  img {
+    display: block;
+    width: min(672px, 100%);
+    height: auto;
+    image-rendering: pixelated;
+  }
+  h1 {
+    margin: 0;
+    color: #ebe6db;
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 400;
+  }
+  h1 span {
+    color: #e7c58a;
+  }
+  p {
+    margin: 0;
+  }
+  a {
+    color: #ebe6db;
+    text-underline-offset: 4px;
+  }
+  a:hover {
+    color: #e7c58a;
+  }
+  :focus-visible {
+    outline: 2px solid #ebe6db;
+    outline-offset: 3px;
+  }
+</style>
 </head>
 <body>
-  <h1>NO.</h1>
-  <p>That page doesn’t exist. <a href="/">Back to Anubhav Gain</a></p>
+<!-- Rendered by scripts/build-emblems.mjs with pixelfx (MIT). The still replaces the loop for reduced motion. -->
+<picture>
+  <source srcset="/assets/404.png" media="(prefers-reduced-motion: reduce)">
+  <img src="/assets/404.webp" width="672" height="378" alt="Pixel art: tracers strike a dome of hexagonal plates over a figure and do not get through.">
+</picture>
+<h1><span aria-hidden="true"># </span>404: denied by default</h1>
+<p>Nothing is allow-listed at this address. <a href="/">Back to Anubhav Gain</a></p>
 </body>
 </html>
