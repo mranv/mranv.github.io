@@ -31,6 +31,8 @@ the browser console is clean.
 | `readme.css` | Styles for the static README below the intro |
 | `site/` | The editor. `editor.js` is the entry; `content.json`, `stack.json`, `months.json` are generated |
 | `site/shots/` | Project screenshots (from the projects' own repos) and two pixel-art emblems |
+| `site/fx.js` | Plays an emblem live with pixelfx, in the theme's colours, over its baked loop |
+| `site/pixelfx/` | Vendored pixelfx (MIT), unmodified. Loaded lazily by `site/fx.js` only |
 | `wall.json`, `wall.txt`, `github-snapshot.json`, `themes.json` | Generated data |
 | `404.html` | Self-contained, absolute paths |
 
@@ -59,9 +61,10 @@ the browser console is clean.
 - **`gh` can see private data.** It is logged in as one of the owner's accounts. `build-data.mjs`
   filters every repository to public (`publicOnly`, `isPrivate`) before writing. Keep those filters when
   adding a query. Check the diff of `site/months.json` and `wall.json` before committing an online run.
-- **Two GitHub accounts are summed.** Commits co-authored by both count once per account, so the
-  contribution total runs about 3% high. The per-month list takes the larger count per repository
-  for the same reason.
+- **Two GitHub accounts are summed.** A commit co-authored by both counts once in each account's
+  calendar; `dedupeCoauthored` in `build-data.mjs` subtracts those per day for public repositories.
+  The per-month list takes the larger count per repository for the same reason. Co-authored commits
+  in private repositories cannot be seen and are not removed.
 - **The blog feed is third-party input.** Only title, link and date are kept, links must be on the
   blog's host, and `seo.mjs` escapes everything it writes.
 - **Absolute paths.** Fonts, `/themes.json`, `/github-snapshot.json` and `/intros/shared/` are loaded
@@ -71,6 +74,10 @@ the browser console is clean.
 - **No backend.** The template's visitor counter (`/api/seen`) is removed and its graph is hidden in
   `site/editor.css`. `HAS_FACE` in `glimpse.js` gates the optional portrait layer; it is off because
   the three face files are not in the repo.
+- **Emblems exist three times on purpose**: a still PNG (wheel tile, reduced motion), a baked WebP loop
+  (works with no script, and on light themes) and the live canvas from `site/fx.js`. A project's `fx`
+  in the config and its entry in `scripts/build-emblems.mjs` must name the same effect, or the live
+  picture will not match the baked one underneath.
 - **`404.html` repeats the Blackmoney colours by hand** so it has no dependency that could 404. Change
   them there too if the default theme changes.
 - **`.nojekyll` must stay.** Without it GitHub Pages runs Jekyll over the repo and renders the
@@ -78,9 +85,10 @@ the browser console is clean.
 
 ## Credits
 
+Licences and attributions for third-party work are in `NOTICE.md`.
+
 - Site design and code: dev-portfolio-template by Pavan Joshi.
-- Pixel-art emblems (`site/shots/krustron.*`, `site/shots/convoy.*`, `assets/404.*`): rendered with
-  [pixelfx](https://github.com/patch-gg/pixelfx) by Patch, MIT. See its `NOTICE.md` for the work it
-  adapts from Hugo Duprez and Hollow Crown.
+- Pixel-art emblems (`site/shots/krustron.*`, `site/shots/convoy.*`, `assets/404.*`, and live through
+  `site/fx.js`): [pixelfx](https://github.com/patch-gg/pixelfx) by Patch, MIT, vendored in `site/pixelfx/`.
 - The README and 404 page were reviewed against [unslop](https://github.com/heydamir/unslop) by
   Damir Sokolovsky (@heydamir), CC BY 4.0.

@@ -122,6 +122,7 @@ function applyTheme(name, remember = false) {
   watch?.recolor();
   wheel?.recolor();
   bar?.recolor();
+  terminal?.recolor();
   if (remember) {
     try {
       localStorage.setItem(THEME_KEY, currentTheme);

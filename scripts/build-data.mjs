@@ -185,9 +185,21 @@ for (const t of palettes) {
 }
 
 // === 3. GitHub helpers (only used with --fetch-github) ===
-const gh = (...args) => JSON.parse(execFileSync("gh", ["api", ...args], { encoding: "utf8", maxBuffer: 1 << 28 }));
+// An online build makes several hundred API calls; one dropped connection must not throw away the run.
+// Only connection failures are retried: an HTTP error (404, 403) is an answer and is thrown at once.
+const exec = (args, options) => {
+  for (let attempt = 1; ; attempt++) {
+    try {
+      return execFileSync("gh", args, { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"], ...options });
+    } catch (error) {
+      if (attempt >= 4 || !/error connecting|timeout|connection reset|EOF/i.test(String(error.stderr))) throw error;
+      execFileSync("sleep", [String(attempt * 3)]);
+    }
+  }
+};
+const gh = (...args) => JSON.parse(exec(["api", ...args], { maxBuffer: 1 << 28 }));
 const ghTry = (...args) => { try { return gh(...args); } catch { return null; } };
-const ghRaw = (url) => execFileSync("gh", ["api", url, "-H", "Accept: application/vnd.github.raw"], { encoding: "utf8", maxBuffer: 1 << 26 });
+const ghRaw = (url) => exec(["api", url, "-H", "Accept: application/vnd.github.raw"], { maxBuffer: 1 << 26 });
 const gql = (query) => gh("graphql", "-f", `query=${query}`).data;
 // The token can see the signed-in account's private repositories. Nothing private is published.
 const publicOnly = (repo) => (repo && repo.private === false ? repo : null);
@@ -198,7 +210,7 @@ function repoFacts(full) {
   if (!r) return {};
   let commits = null;
   try {
-    const out = execFileSync("gh", ["api", `repos/${full}/commits?per_page=1`, "--include"], { encoding: "utf8", maxBuffer: 1 << 24 });
+    const out = exec(["api", `repos/${full}/commits?per_page=1`, "--include"], { maxBuffer: 1 << 24 });
     const m = out.match(/page=(\d+)>; rel="last"/i);
     commits = m ? Number(m[1]) : 1;
   } catch {}
@@ -235,7 +247,8 @@ const projects = CONFIG.projects.map((p) => {
     // and so does the viewer under prefers-reduced-motion.
     const still = file.replace(/\.[a-z]+$/, ".png");
     const animated = still !== file && fs.existsSync(path.join(ROOT, "site", still));
-    return { file, ...(animated ? { still } : {}), source: s, alt: animated ? `${p.name} emblem, pixel art` : `${p.name} screenshot ${i + 1}`, xray: false };
+    // fx: the same emblem as live pixelfx code (site/fx.js), drawn over the baked loop in the current theme's colours.
+    return { file, ...(animated ? { still } : {}), ...(animated && p.fx && i === 0 ? { fx: p.fx } : {}), source: s, alt: animated ? `${p.name} emblem, pixel art` : `${p.name} screenshot ${i + 1}`, xray: false };
   });
   const lines = [
     `# ${p.name}`,
@@ -309,6 +322,43 @@ async function fetchPosts() {
     .slice(0, w.count || 12);
 }
 
+// Subtracts, per day, the commits that two or more of the owner's accounts are both credited for.
+// Scope: public repositories that more than one account committed to this year, default branch only (the
+// commits GitHub counts as contributions). Private overlap cannot be seen and stays in; it is bounded by the
+// smaller account's private contribution count. Returns how many duplicates were removed.
+function dedupeCoauthored(byDay) {
+  if (ACCOUNTS.length < 2) return 0;
+  const since = `${YEAR}-01-01T00:00:00Z`;
+  const touched = new Map();
+  for (const login of ACCOUNTS) {
+    const list = gql(`{user(login:"${login}"){contributionsCollection(from:"${since}",to:"${iso}"){commitContributionsByRepository(maxRepositories:100){repository{nameWithOwner isPrivate}}}}}`).user.contributionsCollection.commitContributionsByRepository;
+    for (const x of list) if (!x.repository.isPrivate) touched.set(x.repository.nameWithOwner, (touched.get(x.repository.nameWithOwner) || 0) + 1);
+  }
+  let removed = 0;
+  for (const [full, accounts] of touched) {
+    if (accounts < 2) continue;
+    const [owner, name] = full.split("/");
+    let after = "";
+    do {
+      const history = gql(`{repository(owner:"${owner}",name:"${name}"){defaultBranchRef{target{... on Commit{history(first:100,since:"${since}"${after}){pageInfo{hasNextPage endCursor} nodes{authoredDate authors(first:6){nodes{user{login}}}}}}}}}}`).repository?.defaultBranchRef?.target?.history;
+      if (!history) break;
+      for (const commit of history.nodes) {
+        const credited = new Set(commit.authors.nodes.map((a) => a.user?.login).filter((login) => ACCOUNTS.includes(login)));
+        // GitHub files a commit under the date in the commit's own time zone, so keep the date as written.
+        const day = commit.authoredDate.slice(0, 10);
+        const extra = credited.size - 1;
+        if (extra > 0 && (byDay.get(day) || 0) >= extra) {
+          byDay.set(day, byDay.get(day) - extra);
+          removed += extra;
+        }
+      }
+      after = history.pageInfo.hasNextPage ? `,after:"${history.pageInfo.endCursor}"` : "";
+    } while (after);
+  }
+  console.log(`contributions: removed ${removed} co-authored duplicates`);
+  return removed;
+}
+
 async function fetchGithub() {
   const perAccount = [];
   const owned = [];
@@ -348,8 +398,8 @@ async function fetchGithub() {
   write("site/stack.json", { fetchedAt: iso, owner: OWNER, accounts: ACCOUNTS, repos: sampled.length, languages, tools, ai: [], site, source: "GitHub languages API + project stacks" });
 
   // Contribution calendar: one per account, summed per day. Levels are recomputed from the sum.
-  // Known ceiling: a commit co-authored by both accounts counts once for each, so the sum runs slightly high
-  // (about 3% when this was written, measured as the overlap in commitContributionsByRepository).
+  // A commit co-authored by two of the accounts counts once in each calendar; dedupeCoauthored() below takes
+  // those duplicates back out of the sum.
   const byDay = new Map();
   const accounts = [];
   for (const { login, repos } of perAccount) {
@@ -360,6 +410,7 @@ async function fetchGithub() {
     const stars = repos.reduce((s, r) => s + r.stargazers_count, 0);
     accounts.push({ login, followers: cal.followers.totalCount, stars, repos: repos.length, contributions: cal.contributionsCollection.contributionCalendar.totalContributions });
   }
+  const deduped = dedupeCoauthored(byDay);
   const active = [...byDay.values()].filter(Boolean).sort((a, b) => a - b);
   const cut = (q) => active[Math.min(active.length - 1, Math.floor(active.length * q))] ?? 0;
   const cuts = [cut(0.25), cut(0.5), cut(0.75)];
@@ -372,7 +423,7 @@ async function fetchGithub() {
     followers: accounts.reduce((s, a) => s + a.followers, 0),
     profile: `https://github.com/${OWNER}`,
     stars: { total: ownStars, own: ownStars, marketplace: 0, repositoryCount: owned.length, scope: "Public owned non-fork repositories", repositories: starRepos.map((r) => ({ name: r.full_name, url: r.html_url, stars: r.stargazers_count, extra: false })) },
-    contributions: { from: `${YEAR}-01-01`, to: TODAY, year: YEAR, total: days.reduce((s, d) => s + d.count, 0), source: "GitHub GraphQL contributionCalendar", days },
+    contributions: { from: `${YEAR}-01-01`, to: TODAY, year: YEAR, total: days.reduce((s, d) => s + d.count, 0), deduped, source: "GitHub GraphQL contributionCalendar, summed across accounts, co-authored commits counted once", days },
     sources: ["GitHub REST + GraphQL via gh"],
     fetchedAt: iso,
   };

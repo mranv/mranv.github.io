@@ -206,6 +206,32 @@ export function createTerminal(buffer, options) {
   let xray = null;
   let hero = null;
   let mounts = [];
+  // The live pixelfx canvas over an emblem shot (site/fx.js). fxToken guards against a mount that resolves
+  // after the visitor has moved to another shot or theme.
+  let liveFx = null;
+  let fxToken = 0;
+
+  function stopFx() {
+    fxToken++;
+    liveFx?.destroy();
+    liveFx = null;
+  }
+
+  // Draws the shot's emblem live in the theme's colours. The baked loop underneath stays as the fallback.
+  function playFx(v, k) {
+    stopFx();
+    const fx = v.shots[k]?.fx;
+    if (!fx) return;
+    const mine = fxToken;
+    const tone = getComputedStyle(document.body).getPropertyValue(`--${fx.tone || "accent"}`).trim() || "#e7c58a";
+    import("./fx.js")
+      .then(({ mountFx }) => mountFx(v.frame, { effect: fx.effect, color: tone }))
+      .then((mounted) => {
+        if (mine !== fxToken || viewer !== v || v.at !== k) mounted?.destroy();
+        else liveFx = mounted;
+      })
+      .catch(() => {});
+  }
 
   function unmount() {
     for (const stop of mounts) stop?.();
@@ -213,6 +239,7 @@ export function createTerminal(buffer, options) {
   }
 
   function stopViewer() {
+    stopFx();
     options.lightbox?.close(true);
     xray?.destroy();
     xray = null;
@@ -522,6 +549,7 @@ export function createTerminal(buffer, options) {
       link.rel = "noopener";
       v.name.append(" · ", link);
     }
+    playFx(v, k);
     v.count.textContent = v.shots.length > 1 ? `${k + 1}/${v.shots.length}` : "";
     v.buttons.forEach((button, j) => button.setAttribute("aria-current", String(j === k)));
   }
@@ -657,7 +685,7 @@ export function createTerminal(buffer, options) {
       return viewer?.visible ? toggleFilm(viewer) : false;
     },
     recolor() {
-      hero?.recolor?.();
+      if (viewer?.at >= 0) playFx(viewer, viewer.at);
     },
     destroy() {
       token++;

@@ -881,6 +881,17 @@ a.md-link:hover {
   font: 400 12px/1.4 "Plex Mono", ui-monospace, monospace;
 }
 
+/* The live emblem (site/fx.js) covers the baked loop it replaces, under the frame's controls. */
+.fx-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: var(--line);
+  image-rendering: pixelated;
+}
+
 .t-play {
   position: absolute;
   top: 50%;

@@ -60,10 +60,13 @@ export function headHtml(config, page) {
     `<meta name="twitter:image" content="${esc(image)}">`,
     `<meta name="twitter:image:alt" content="${esc(seo.ogImageAlt)}">`,
     ...config.links.filter((l) => l.me).map((l) => `<link rel="me" href="${esc(l.url)}">`),
+    // The one font both pages set text in; preloading it removes a late swap on the README.
+    `<link rel="preload" href="/assets/fonts/IBMPlexMono-Regular.ttf" as="font" type="font/ttf" crossorigin>`,
+    ...(config.writing?.feed ? [`<link rel="alternate" type="application/rss+xml" title="${esc(config.writing.title || "Blog")}" href="${esc(config.writing.feed)}">`] : []),
     `<link rel="icon" href="/favicon.svg" type="image/svg+xml">`,
     `<link rel="icon" href="/favicon.ico" sizes="32x32">`,
     `<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">`,
-    ...(home ? [`<script type="application/ld+json">\n${JSON.stringify(jsonLd(config), null, 1).replace(/</g, "\\u003c")}\n</script>`] : []),
+    `<script type="application/ld+json">\n${JSON.stringify(home ? jsonLd(config) : siteJsonLd(config), null, 1).replace(/</g, "\\u003c")}\n</script>`,
   ];
   return lines.join("\n");
 }
@@ -130,7 +133,10 @@ export function jsonLd(config, today = new Date().toISOString().slice(0, 10)) {
         email: p.email,
         jobTitle: p.jobTitle,
         description: p.description,
-        worksFor: { "@type": "Organization", "@id": id(slug(p.worksFor.name)), name: p.worksFor.name, url: p.worksFor.url },
+        worksFor: { "@type": "Organization", "@id": id(p.worksFor.id || slug(p.worksFor.name)), name: p.worksFor.name, url: p.worksFor.url },
+        ...(p.occupation
+          ? { hasOccupation: { "@type": "Occupation", name: p.occupation.name, skills: p.occupation.skills, occupationLocation: { "@type": "City", name: p.home.locality } } }
+          : {}),
         homeLocation: { "@type": "Place", name: `${p.home.locality}, ${p.home.region}, India`, address: place(p.home) },
         alumniOf: p.alumniOf.map((a) => ({ "@type": "CollegeOrUniversity", name: a.name, url: a.url })),
         hasCredential: credentials,
@@ -138,18 +144,20 @@ export function jsonLd(config, today = new Date().toISOString().slice(0, 10)) {
         identifier: { "@type": "PropertyValue", propertyID: "ORCID", value: p.orcid, url: `https://orcid.org/${p.orcid}` },
         sameAs,
       },
-      ...(seo.founded
-        ? [
-            {
-              "@type": "Organization",
-              "@id": id(slug(seo.founded.name)),
-              name: seo.founded.name,
-              description: seo.founded.description,
-              foundingDate: seo.founded.foundingDate,
-              founder: { "@id": id("person") },
-              location: { "@type": "Place", address: place(seo.founded) },
-            },
-          ]
+      // Organisations the person owns or founded. Their @ids are published anchors too.
+      ...(seo.organizations || []).map((o) => ({
+        "@type": "Organization",
+        "@id": id(o.id),
+        name: o.name,
+        description: o.description,
+        ...(o.url ? { url: o.url } : {}),
+        foundingDate: o.foundingDate,
+        founder: { "@id": id("person") },
+        location: { "@type": "Place", address: place(o) },
+      })),
+      // The blog lives on another host; naming the person as its author ties the two together.
+      ...(config.writing
+        ? [{ "@type": "Blog", "@id": `${config.writing.site}#blog`, url: config.writing.site, name: config.writing.title || "Blog", inLanguage: "en", author: { "@id": id("person") }, publisher: { "@id": id("person") } }]
         : []),
       ...code,
       {
@@ -160,6 +168,38 @@ export function jsonLd(config, today = new Date().toISOString().slice(0, 10)) {
         width: 400,
         height: 400,
         caption: config.identity.name,
+      },
+    ],
+  };
+}
+
+// /site/ is a second view of the same person: a WebPage that points back at the root's nodes, plus a breadcrumb.
+export function siteJsonLd(config, today = new Date().toISOString().slice(0, 10)) {
+  const seo = config.seo;
+  const id = (hash) => `${seo.siteUrl}#${hash}`;
+  const url = abs(seo.siteUrl, "site/");
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${url}#page`,
+        url,
+        name: seo.siteTitle,
+        description: seo.siteDescription,
+        inLanguage: "en",
+        dateModified: `${today}T00:00:00+05:30`,
+        isPartOf: { "@id": id("website") },
+        about: { "@id": id("person") },
+        breadcrumb: { "@id": `${url}#breadcrumb` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: config.identity.name, item: seo.siteUrl },
+          { "@type": "ListItem", position: 2, name: "Editor", item: url },
+        ],
       },
     ],
   };
